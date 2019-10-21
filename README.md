@@ -86,6 +86,3 @@ Make sure the tests pass (including eslint, flow checks and jest tests):
 yarn test
 ```
 Make your changes and tests, and make sure the tests pass.
-
-## License
-MIT @NTCU-CS
