@@ -24,7 +24,7 @@ Or install it by yarn:
 
 ## Community
 
-You can discuss anything about Bottender or chatbot development in our [Discord Server](https://discord.gg/Gjaamg). Join now!
+You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/Gjaamg). Join now!
 
 ## Documentation
 
