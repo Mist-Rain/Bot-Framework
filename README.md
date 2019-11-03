@@ -65,6 +65,7 @@ server.get('/', function(req, res, next){
 	bot.fbSubscribe(req, res);
 });
 ```
+This will create and run a bot which always reply "Hello World!" to the sender from facebook or line platform.
 
 ## Contributing
 Pull Requests and issue reports are welcome. You can follow steps below to submit your pull requests:
