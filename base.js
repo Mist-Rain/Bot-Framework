@@ -58,10 +58,12 @@ class base {
 	// return the received message
 	getReceivedMessage(req){
 		let platform = this.getPlatform(req);
-		let message = null;
+		let message = undefined;
 		if(platform === 'line'){
 			req.body.events.map(function(events){
-				message = events.message.text;
+				if(events.type === "message"){
+					message = events.message.text;
+				}
 			})
 			return message;
 		}
@@ -75,7 +77,7 @@ class base {
 	
 	getUserId(req){
 		let platform = this.getPlatform(req);
-		let user_id = null;
+		let user_id = undefined;
 		if(platform === 'line'){
 			req.body.events.map(function(events){
 				user_id = events.source.userId;
@@ -97,6 +99,13 @@ class base {
 			req.body.entry.map(function(entry){
 				if(typeof entry.messaging[0].message.quick_reply !=='undefined'){
 					payload = entry.messaging[0].message.quick_reply.payload;
+				}
+			});
+			return payload;
+		} else if(platform === 'line'){
+			req.body.events.map(function(events){
+				if(events.type === "postback"){
+					payload = events.postback.data;
 				}
 			});
 			return payload;
@@ -251,10 +260,14 @@ class base {
 	// send message handler
 	messageHandler(platform, message, button_action){
 		if(platform === 'line'){
-			return lineHandler.textMessage(message);
+			if(arguments[2]){
+				return lineHandler.quickMessage(button_action);
+			} else {
+				return lineHandler.textMessage(message);
+			}
 		}
 		else if(platform === 'fb'){
-			if(message === '功能表'){
+			if(arguments[2]){
 				return fbHandler.quickMessage(button_action);
 			} else {
 				return fbHandler.textMessage(message);

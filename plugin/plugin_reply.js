@@ -25,7 +25,7 @@ class plugin_reply extends plugin_format{
 		let answer =
 		result.score > threshold && result.answer
 		? result.answer
-		: "Sorry, I don't understand";
+		: "抱歉我聽不懂哦";
 		return answer;
 	}
 	async replyNLP(message){

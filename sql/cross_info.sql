@@ -5,7 +5,7 @@
 -- 主機： 127.0.0.1
 -- 產生時間： 
 -- 伺服器版本： 10.4.6-MariaDB
--- PHP 版本： 7.3.9
+-- PHP 版本： 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,29 +34,29 @@ CREATE TABLE `cross_info` (
   `cross_id` text NOT NULL,
   `user_id` text NOT NULL,
   `nickname` text NOT NULL,
-  `group_id` int(11) NOT NULL
+  `group_name` text NOT NULL,
+  `friend` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 傾印資料表的資料 `cross_info`
 --
 
-INSERT INTO `cross_info` (`id`, `platform`, `cross_id`, `user_id`, `nickname`, `group_id`) VALUES
-(0, 'fb', 'fb#1254', '546634', '', 0),
-(1, 'line', 'line#8540', '842567', '', 0),
-(2, 'fb', 'fb#8787', '863512', '', 0),
-(4, 'fb', 'fb#0000', '854541', '', 0),
-(5, 'fb', 'fb#0856', '854441', '', 0),
-(6, 'line', 'line#0000', '123259', '', 0),
-(7, 'line', 'line#0173', 'U1eb0066c63298492475422922712b3d6', '狂三', 1),
-(8, 'line', 'line#0677', 'Uf47e2f70a05140630784283b31ab3d0d', '你好', 1),
-(9, 'fb', 'fb#0540', '887927', '', 0),
-(10, 'fb', 'fb#0467', '132592', '', 0),
-(11, 'fb', 'fb#0302', '138822', '', 0),
-(12, 'fb', 'fb#0734', '2039800242752214', '舒服', 1),
-(24, 'fb', 'fb#0124', '2454676244606372', '屌傑', 1),
-(25, 'line', 'line#0502', 'Uca5e9c75393d247bbf05887dffe749f8', '奶棋', 1),
-(26, 'line', 'line#0475', 'Ub3ba83cd4e5575b65494fdc28f521cae', '鼻孔', 1);
+INSERT INTO `cross_info` (`id`, `platform`, `cross_id`, `user_id`, `nickname`, `group_name`, `friend`) VALUES
+(0, 'fb', 'fb#1254', '546634', '', '', ''),
+(1, 'line', 'line#8540', '842567', '', '', ''),
+(2, 'fb', 'fb#8787', '863512', '', '', ''),
+(4, 'fb', 'fb#0000', '854541', '', '', ''),
+(5, 'fb', 'fb#0856', '854441', '', '', ''),
+(6, 'line', 'line#0000', '123259', '', '', ''),
+(7, 'line', 'line#0173', '818759', '', '', ''),
+(8, 'line', 'line#0677', '851241', '', '', ''),
+(9, 'fb', 'fb#0540', '887927', '', '', ''),
+(10, 'fb', 'fb#0467', '132592', '', '', ''),
+(11, 'fb', 'line#0502', '138822', '', '', ''),
+(24, 'fb', 'fb#0124', '', '', '', ''),
+(26, 'line', 'line#0475', 'Ub3ba83cd4e5575b65494fdc28f521cae', '舒服', '群組1,組長群', '鼻孔'),
+(30, 'fb', '', '2454676244606372', '鼻孔', '群組1,組長群', '舒服');
 
 --
 -- 已傾印資料表的索引
@@ -78,7 +78,7 @@ ALTER TABLE `cross_info`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cross_info`
 --
 ALTER TABLE `cross_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AUTO_INCREMENT', AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

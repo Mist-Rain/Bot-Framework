@@ -12,19 +12,19 @@ The framework highly depends on async function syntax, the use of sql and ssl se
 * sql software (e.g. [XAMPP](https://www.apachefriends.org/zh_tw/index.html))
 * ssl server like [ngrok](https://ngrok.com/) or [heroku](https://www.heroku.com/)
 
-## Installing Bot Framework
+## Installing Bot Framework(Not yet implemented)
 
-To start using it, install `sm-bot-framework` globally from the npm registry:
+To start using it, install sm-bot-framework globally from the npm registry:
 
-`npm install -g sm-bot-framework`
+``npm install -g sm-bot-framework``
 
 Or install it by yarn:
 
-`yarn global add sm-bot-framework`
+``yarn global add sm-bot-framework``
 
 ## Community
 
-You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/dSXSemU). Join now!
+You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/Gjaamg). Join now!
 
 ## Documentation
 
@@ -47,12 +47,12 @@ You can find the framework documentation on the website.
 // bot settings
 const
   plugin = require('./plugin_manager.js'),
-	base = require('./base.js'),
-	server = base.server,
-	bot = new base(8080);
+  base = require('./base.js'),
+  server = base.server,
+  bot = new base(8080);
   
 server.post('/', async function(req, res, next){
-	bot.lineVerify(req, res);
+ bot.lineVerify(req, res);
   
   let platform = bot.getPlatform(req);
   bot.connect(platform, req, res);
@@ -62,28 +62,22 @@ server.post('/', async function(req, res, next){
 });
 
 server.get('/', function(req, res, next){
-	bot.fbSubscribe(req, res);
+ bot.fbSubscribe(req, res);
 });
 ```
-This will create and run a bot which always reply "Hello World!" to the sender from facebook or line platform.
-
 ## Contributing
 Pull Requests and issue reports are welcome. You can follow steps below to submit your pull requests:
 
 Fork, then clone the repo:
 
-```
 git clone git@github.com:your-username/sm-bot-framework.git
-```
 Install the dependencies:
-
-```
+``
 cd sm-bot-framework
 yarn
-```
+``
 Make sure the tests pass (including eslint, flow checks and jest tests):
-
-```
+``
 yarn test
-```
+``
 Make your changes and tests, and make sure the tests pass.

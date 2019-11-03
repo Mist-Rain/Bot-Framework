@@ -41,6 +41,15 @@ class plugin_sql extends plugin_format{
 		} else if(func === 'AddFriend'){
 			let AddFriend = await this.AddFriend(...args);
 			return AddFriend;
+		} else if(func === 'UserInGroup'){
+			let UserInGroup = await this.UserInGroup(...args);
+			return UserInGroup;
+		} else if(func === 'getFriendList'){
+			let getFriendList = await this.getFriendList(...args);
+			return getFriendList;
+		} else if(func === 'FriendIsExist'){
+			let FriendIsExist = await this.FriendIsExist(...args);
+			return FriendIsExist;
 		}
 		else {
 			console.log("Unknown function.");
@@ -119,6 +128,15 @@ class plugin_sql extends plugin_format{
 			}
 		}
 	}
+	//get user friend list
+	async getFriendList(user_id){
+		let data = await this.getData();
+		for(let item of data){
+			if(user_id === item.user_id){
+				return item.friend;
+			}
+		}
+	}
 	// get group members' nickname
 	async getGroupMember(user_id, group_name){
 		let data = await this.getData();
@@ -142,12 +160,13 @@ class plugin_sql extends plugin_format{
 				}
 			}
 		}
-		
+		/*
 		let nickname_str = '';
 		for(let item of nickname_list){
-			nickname_str += item + ' ';
+			nickname_str += item + ',';
 		}
-		return nickname_str + '\n你想傳給誰?\n格式：<暱稱>#<訊息>';
+		*/
+		return nickname_list;
 	}
 	// get auto increment id
 	getId(user_id, data){
@@ -234,6 +253,22 @@ class plugin_sql extends plugin_format{
 		}
 		return false;
 	}
+	//whether person has been in group
+	async UserInGroup(nickname, group){
+		let data = await this.getData();
+		let group_array;
+		for(let item of data){
+			if(item.nickname === nickname){
+				group_array = item.group_name.split(',');
+				for(let g of group_array){
+					if(g === group){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 	//add person to group
 	async joinGroup(join_group, invite_nickname){
 		let data = await this.getData();
@@ -264,6 +299,7 @@ class plugin_sql extends plugin_format{
 	//find the friend is exist or not
 	async FriendIsExist(user_id, friend_nickname){
 		let friend_array = [];
+		let data = await this.getData();
 		for(let item of data){
 			if(item.user_id === user_id){
 				friend_array = item.friend.split(',');
@@ -290,7 +326,7 @@ class plugin_sql extends plugin_format{
 				}
 				else if(item.friend !== ""){
 					sql = {
-						friend: item.friend + ',' + friend_nickname;
+						friend: item.friend + ',' + friend_nickname
 					};
 				}
 				con.query('UPDATE cross_info SET ? where id = ?', [sql, id], function(err, result){
@@ -298,7 +334,6 @@ class plugin_sql extends plugin_format{
 						throw err;
 					}
 				});
-				return;
 			}
 			if(friend_nickname === item.nickname){
 				let id = item.id;
@@ -310,7 +345,7 @@ class plugin_sql extends plugin_format{
 				}
 				else if(item.friend !== ""){
 					sql = {
-						friend: item.friend + ',' + user_nickname;
+						friend: item.friend + ',' + user_nickname
 					};
 				}
 				con.query('UPDATE cross_info SET ? where id = ?', [sql, id], function(err, result){
@@ -318,7 +353,6 @@ class plugin_sql extends plugin_format{
 						throw err;
 					}
 				});
-				return;
 			}
 		}
 		return;
@@ -326,8 +360,3 @@ class plugin_sql extends plugin_format{
 }
 
 module.exports = new plugin_sql;
-
-//manager主要是會用run來跑
-//關於之前的plugin用的封閉函式(用來保護變數的)，就拜託你在想個辦法  >.0
-
-//放在plugin資料夾
