@@ -30,13 +30,13 @@ You can discuss anything about sm-bot-framework or chatbot development in our [D
 
 You can find the framework documentation on the website.
 
-* Getting Started
-* Platforms
-  * Messenger
-  * LINE
-* Guides
-  * ssl server
-* API Reference
+* [Getting Started](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Getting-Started.md)
+* [Platforms](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Platforms.md)
+  * [Messenger](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md)
+  * [LINE](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md)
+* [Guides](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Guides/Guides.md)
+  * [ssl server](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Guides/ssl-server.md)
+* [API Reference](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md)
 
 ## Examples
 
