@@ -31,8 +31,6 @@ You can discuss anything about sm-bot-framework or chatbot development in our [D
 You can find the framework documentation on the website.
 
 * Getting Started
-  * base
-  * plugin
 * Platforms
   * Messenger
   * LINE
