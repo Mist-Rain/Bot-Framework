@@ -41,7 +41,7 @@ You can find the framework documentation on the website.
 ## Examples
 
 ```javascript
-
+// B
 // bot settings
 const
   plugin = require('./plugin_manager.js'),
