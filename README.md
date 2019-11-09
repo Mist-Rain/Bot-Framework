@@ -13,16 +13,6 @@ The framework highly depends on async function syntax, the use of sql and ssl se
 * sql software (e.g. [XAMPP](https://www.apachefriends.org/zh_tw/index.html))
 * ssl server like [ngrok](https://ngrok.com/) or [heroku](https://www.heroku.com/)
 
-## Installing Bot Framework(Not yet implemented)
-
-To start using it, install sm-bot-framework globally from the npm registry:
-
-``npm install -g sm-bot-framework``
-
-Or install it by yarn:
-
-``yarn global add sm-bot-framework``
-
 ## Community
 
 You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/Gjaamg). Join now!
