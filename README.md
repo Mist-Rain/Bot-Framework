@@ -1,4 +1,4 @@
-# Bot-Framework
+# Smart Multifunction Bot Framework
 
 This is a framework make you create chatbot more easily.
 
