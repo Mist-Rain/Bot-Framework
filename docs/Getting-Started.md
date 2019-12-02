@@ -27,7 +27,7 @@ Notice that the server listening route should be add after the Webhook URL(e.g. 
 ## Set secret key in the file ``key_config.ini``
 
 In LINE platform, you will need the ``channel_secret`` and the ``channel_access_token``.
-
+In FB platform, you will need the ``page_access_token``.
 ## Example
 
 Simple example of receiving line packages
