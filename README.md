@@ -2,6 +2,8 @@
 
 This is a framework make you create chatbot more easily.
 
+<b>Support FB and LINE platform.</b>
+
 * #### Flexible - Build your own plugin and use it at any time
 * #### Intelligent - Use NLP to perform situational conversation
 * #### Modern - Source written with ES6/ES7 syntax and great async await supports.
