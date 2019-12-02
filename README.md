@@ -54,7 +54,7 @@ server.get('/', function(req, res, next){
  bot.fbSubscribe(req, res);
 });
 ```
-Build the script under the main folder, run and remember to set your key in key_config.ini.
+Build the script under the main folder, remember to set your key in the file key_config.ini and run js file with the command ``node <filename>.js``.
 ## Contributing
 Pull Requests and issue reports are welcome. You can follow steps below to submit your pull requests:
 
