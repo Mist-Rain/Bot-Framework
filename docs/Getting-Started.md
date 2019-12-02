@@ -18,3 +18,23 @@ Notice that the server listening route should be add after the Webhook URL(e.g. 
 ## Set secret key in the file ``key_config.ini``
 
 In LINE platform, you will need the ``channel_secret`` and the ``channel_access_token``.
+
+## Example
+
+Simple example of receiving line packages
+```javascript
+// linePackageReceive.js
+
+// bot settings
+const
+	base = require('./base.js'),
+	server = base.server,
+	bot = new base(8080);
+
+server.post('/', async function(req, res, next){
+	bot.lineVerify(req, res);
+	
+	let platform = bot.getPlatform(req);
+	bot.connect(platform, req, res);
+});
+```
