@@ -36,7 +36,6 @@ You can find the framework documentation on the website.
 // Bot.js
 // bot settings
 const
-  plugin = require('./plugin_manager.js'),
   base = require('./base.js'),
   server = base.server,
   bot = new base(8080);
