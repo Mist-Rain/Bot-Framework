@@ -38,9 +38,6 @@ Simple example of echo bot receiving line and fb webhook event
 
 // bot settings
 const
-	// plugin use require
-	plugin = require('./plugin_manager.js'),
-	
 	base = require('./base.js'),
 	server = base.server,
 	
