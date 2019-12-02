@@ -14,11 +14,11 @@ Use reverse proxy service like [ngrok](https://dashboard.ngrok.com/get-started).
 ### Precautions
 Remember to set the Webhook URL with the SSL URL you just got.
 
-LINE
+* LINE
 
 ![image](https://i.imgur.com/TZEIAN3.jpg)
 
-FB
+* FB
 
 ![image](https://i.imgur.com/kpv5ay3.jpg)
 
