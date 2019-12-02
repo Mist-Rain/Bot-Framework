@@ -23,7 +23,7 @@ You can discuss anything about sm-bot-framework or chatbot development in our [D
 
 You can find the framework documentation on the website.
 
-* [Getting Started](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Getting-Started.md)
+* [Getting Started](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Getting-Started.md#getting_started)
 * [Platforms](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Platforms.md)
   * [Messenger](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md)
   * [LINE](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md)
