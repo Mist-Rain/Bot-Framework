@@ -65,4 +65,4 @@ server.get('/', function(req, res, next){
 });
 ```
 
-<b>[BACK](https://github.com/Mist-Rain/Bot-Framework)</b>
+<b>[BACK](https://github.com/Mist-Rain/Bot-Framework#documentation)</b>
