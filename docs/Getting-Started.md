@@ -22,7 +22,7 @@ Remember to set the Webhook URL with the SSL URL you just got.
 
 ![image](https://i.imgur.com/kpv5ay3.jpg)
 
-Notice that the server listening route should be add after the Webhook URL(e.g. ``server.post('/callback', ...)`` with ``https:OOOOOOOO.ngrok.io/callback``).
+Notice that the server listening route should be added after the Webhook URL(e.g. ``server.post('/callback', ...)`` with ``https:OOOOOOOO.ngrok.io/callback``).
 
 ## Set secret key in the file ``key_config.ini``
 
