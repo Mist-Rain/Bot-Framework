@@ -32,14 +32,19 @@ In FB platform, you will need the ``page_access_token``.
 
 ## Example
 
-Simple example of receiving line packages
+Simple example of echo bot receiving line and fb webhook event
 ```javascript
-// linePackageReceive.js
+// crossPlatform.js
 
 // bot settings
 const
+	// plugin use require
+	plugin = require('./plugin_manager.js'),
+	
 	base = require('./base.js'),
 	server = base.server,
+	
+	// listen port 8080
 	bot = new base(8080);
 
 server.post('/', async function(req, res, next){
@@ -48,8 +53,17 @@ server.post('/', async function(req, res, next){
 	
 	// judge the platform by received message
 	let platform = bot.getPlatform(req);
+	let received_message = bot.getReceivedMessage(req);
 	
-	// line webhook event and validation
+	// receiving webhook event
 	bot.connect(platform, req, res);
+	
+	// transform the json format and send
+	reply = await bot.messageHandler(platform, received_message);
+	bot.sendAPI(platform, 'reply', req, reply);
+});
+
+server.get('/', function(req, res, next){
+	bot.fbSubscribe(req, res);
 });
 ```
