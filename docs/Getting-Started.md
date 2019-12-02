@@ -1,17 +1,26 @@
 # Getting started
 
-Take <b>LINE</b> platform for example.
+[Node.js](https://nodejs.org/en/) version is at least 7.6.0
 
 ## Get a SSL URL
 Use reverse proxy service like [ngrok](https://dashboard.ngrok.com/get-started).
 
-## Create Messaging API channel
+## Create Messaging API Channel(for LINE)
 [LINE Developer](https://developers.line.biz/console/register/messaging-api/provider/)
+
+## Add an Application(for FB)
+[FB Developer](https://developers.facebook.com/)
 
 ### Precautions
 Remember to set the Webhook URL with the SSL URL you just got.
 
+LINE
+
 ![image](https://i.imgur.com/TZEIAN3.jpg)
+
+FB
+
+![image](https://i.imgur.com/kpv5ay3.jpg)
 
 Notice that the server listening route should be add after the Webhook URL(e.g. ``server.post('/callback', ...)`` with ``https:OOOOOOOO.ngrok.io/callback``).
 
