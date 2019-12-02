@@ -9,7 +9,7 @@ Use reverse proxy service like [ngrok](https://dashboard.ngrok.com/get-started).
 [LINE Developer](https://developers.line.biz/console/register/messaging-api/provider/)
 
 ### Precautions
-Remember to set the Webhook URL with the SSL URL you just getted.
+Remember to set the Webhook URL with the SSL URL you just got.
 
 ![image](https://i.imgur.com/TZEIAN3.jpg)
 
