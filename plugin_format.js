@@ -5,5 +5,3 @@ class plugin_format{
 };
 
 module.exports = plugin_format;
-
-//放在adapter資料夾
