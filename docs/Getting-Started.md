@@ -1,4 +1,4 @@
-# <a name="getting_started"></a>Getting started
+# <a name="getting-started"></a>Getting started
 
 [Node.js](https://nodejs.org/en/) version is at least 7.6.0
 
