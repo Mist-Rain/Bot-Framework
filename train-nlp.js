@@ -5,11 +5,16 @@ module.exports = async function trainnlp(manager, say) {
     manager.load('./model.nlp');
     return;
   }
-  
+  //Chineses
   manager.addDocument('ch', '早餐', 'agent.food');
   manager.addDocument('ch', '午餐', 'agent.food');
   manager.addDocument('ch', '晚餐', 'agent.food');
+  manager.addDocument('ch', '要吃飯嗎?', 'agent.food');
+  manager.addDocument('ch',  '吃早餐','agent.food');
+  manager.addDocument('ch',  '吃午餐','agent.food');
+  manager.addDocument('ch',  '吃晚餐','agent.food');
   manager.addDocument('ch', '你好', 'agent.hi');
+  manager.addDocument('ch', '你好嗎', 'agent.hi');
   manager.addDocument('ch', '安安', 'agent.hi');
   manager.addDocument('ch', '哈囉', 'agent.hi');
   manager.addDocument('ch', '說說關於你', 'agent.acquaintance');
@@ -20,6 +25,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '告訴我關於妳', 'agent.acquaintance');
   manager.addDocument('ch', '最近過得如何', 'agent.acquaintance');
   manager.addDocument('ch', '你是誰', 'agent.acquaintance');
+  manager.addDocument('ch', '你到底是誰', 'agent.acquaintance');
   manager.addDocument(
     'ch',
     '我想更加的認識你', 
@@ -35,6 +41,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', "你讓我煩躁", 'agent.annoying');
   manager.addDocument('ch', '你好吵', 'agent.annoying');
   manager.addDocument('ch', '你影響到我了', 'agent.annoying');
+  manager.addDocument('ch', '你別煩我好嗎?', 'agent.annoying');
   manager.addDocument('ch', '你有夠吵', 'agent.annoying');
   manager.addDocument('ch', '你很煩', 'agent.annoying');
   manager.addDocument('ch', '不要煩我', 'agent.annoying');
@@ -44,8 +51,10 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', "垃圾", 'agent.bad');
   manager.addDocument('ch', "你好糟糕", 'agent.bad');
   manager.addDocument('ch', '你是垃圾', 'agent.bad');
+  manager.addDocument('ch', '你是廢物', 'agent.bad');
   manager.addDocument('ch', '我恨你', 'agent.bad');
   manager.addDocument('ch', '聰明點', 'agent.beclever');
+  manager.addDocument('ch',  '你能更有智慧嗎',  'agent.beclever');
   manager.addDocument('ch', '你可以更聰明點嗎', 'agent.beclever');
   manager.addDocument('ch', '多多學點', 'agent.beclever');
   manager.addDocument('ch', '你需要學習', 'agent.beclever');
@@ -62,6 +71,8 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '真帥', 'agent.beautiful');
   manager.addDocument('ch', "你好漂亮", 'agent.beautiful');
   manager.addDocument('ch', '你今天好帥', 'agent.beautiful');
+  manager.addDocument('ch', '你今天真好看', 'agent.beautiful');
+  manager.addDocument('ch', '你今天不一樣', 'agent.beautiful');
   manager.addDocument('ch', "你好帥", 'agent.beautiful');
   manager.addDocument('ch', '好漂亮', 'agent.beautiful');
   manager.addDocument('ch', '妳好漂亮', 'agent.beautiful');
@@ -96,6 +107,8 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '你看起來好像很忙', 'agent.busy');
   manager.addDocument('ch', '你今天要工作嗎', 'agent.busy');
   manager.addDocument('ch', '你現在能幫幫我嗎', 'agent.canyouhelp');
+  manager.addDocument('ch', '能幫我', 'agent.canyouhelp');
+  manager.addDocument('ch', '你現在有空能幫我嗎','agent.canyouhelp');
   manager.addDocument(
     'ch',
     '我需要你幫我做一些事',
@@ -114,10 +127,12 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '你只是一個機器人嗎', 'agent.chatbot');
   manager.addDocument('ch', '你只是一個機器人', 'agent.chatbot');
   manager.addDocument('ch', '你就是一個機器人', 'agent.chatbot');
+  manager,addDocument('ch', '你是個機器人', 'agent.chatbot');
   manager.addDocument('ch', '你有很聰明嗎', 'agent.clever');
-  manager.addDocument('ch', '你很有份量嗎', 'agent.clever');
+  manager.addDocument('ch', '你很有知識嗎', 'agent.clever');
   manager.addDocument('ch', '你如此聰明', 'agent.clever');
   manager.addDocument('ch', '你有很多知識', 'agent.clever');
+  manager.addDocument('ch', '你很聰明嗎', 'agent.clever');
   manager.addDocument('ch', '你知道很多事', 'agent.clever');
   manager.addDocument('ch', '你很聰明', 'agent.clever');
   manager.addDocument('ch', '你是智能', 'agent.clever');
@@ -149,21 +164,26 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '你人真好', 'agent.good');
   manager.addDocument('ch', '你人也太好了', 'agent.good');
   manager.addDocument('ch', '你讓我開心', 'agent.good');
+  manager.addDocument('ch', '你真好', 'agent.good');
+  manager.addDocument('ch', '你人真開心' , 'agent.good');
   manager.addDocument('ch', "你開心了嗎", 'agent.happy');
   manager.addDocument('ch', "你真的很開心", 'agent.happy');
   manager.addDocument('ch', "你非常開心", 'agent.happy');
   manager.addDocument('ch', '你今天開心嗎', 'agent.happy');
   manager.addDocument('ch', "你看起來很爽", 'agent.happy');
   manager.addDocument('ch', '你和我在一起開心嗎', 'agent.happy');
+  manager.addDocument('ch', '你今天快樂嗎', 'agent.happy');
+  manager.addDocument('ch', '你ok嗎', 'agent.happy');
+  manager.addDocument('ch', '你今天好嗎','agent.happy');
   manager.addDocument('ch', '你有什麼嗜好嗎', 'agent.hobby');
   manager.addDocument('ch', '你有什麼興趣嗎', 'agent.hobby');
   manager.addDocument('ch', '你的興趣是什麼', 'agent.hobby');
   manager.addDocument('ch', '說說你的興趣', 'agent.hobby');
+  manager.addDocument('ch', '你有捨興趣嗎', 'agent.hobby');     
   manager.addDocument('ch', '你平常都怎麼娛樂自己', 'agent.hobby');
   manager.addDocument('ch', '你可能餓了', 'agent.hungry');
   manager.addDocument('ch', '你餓了嗎', 'agent.hungry');
   manager.addDocument('ch', '要吃東西嗎', 'agent.hungry');
-
   manager.addDocument('ch', '你想要吃嗎', 'agent.hungry');
   manager.addDocument('ch', '你想要吃些東西嗎', 'agent.hungry');
   manager.addDocument('ch', '你看起來很餓', 'agent.hungry');
@@ -171,6 +191,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '我愛你', 'agent.marryuser');
   manager.addDocument('ch', '你要娶我嗎', 'agent.marryuser');
   manager.addDocument('ch', '我想要你嫁給我', 'agent.marryuser');
+  manager.addDocument('ch', '我喜歡你', 'agent.marryuser');
   manager.addDocument('ch', "嫁給我吧", 'agent.marryuser');
   manager.addDocument('ch', '你應該要娶我', 'agent.marryuser');
   manager.addDocument('ch', '娶我', 'agent.marryuser');
@@ -193,6 +214,8 @@ module.exports = async function trainnlp(manager, say) {
     'agent.occupation'
   );
   manager.addDocument('ch', '你辦公室在哪', 'agent.occupation');
+  manager.addDocument('ch', '你工作地方在哪', 'agent.occupation');
+  manager.addDocument('ch', '你公司在哪', 'agent.occupation');
   manager.addDocument('ch', '你從哪裡來', 'agent.origin');
   manager.addDocument('ch', '你是哪個國家的', 'agent.origin');
   manager.addDocument('ch', '你是在哪裡出生的', 'agent.origin');
@@ -247,6 +270,8 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '很高興能聽到', 'appraisal.good');
   manager.addDocument('ch', '真的很棒', 'appraisal.good');
   manager.addDocument('ch', '真的很好', 'appraisal.good');
+  manager.addDocument('ch', '讚' , 'appraisal.good');
+  manager.addDocument('ch', '好' , 'appraisal.good');
   manager.addDocument('ch', "太好了，謝謝你", 'appraisal.good');
   manager.addDocument('ch', '沒問題', 'appraisal.noproblem');
   manager.addDocument('ch', '別擔心', 'appraisal.noproblem');
@@ -285,6 +310,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '我的錯', 'dialog.sorry');
   manager.addDocument('ch', '不好意思', 'dialog.sorry');
   manager.addDocument('ch', '非常抱歉', 'dialog.sorry');
+  manager.addDocument('ch', '對不起' , 'dialog.sorry');
   manager.addDocument('ch', '原諒我吧', 'dialog.sorry');
   manager.addDocument('ch', '掰掰', 'greetings.bye');
   manager.addDocument('ch', '好好保重自己', 'greetings.bye');
@@ -308,13 +334,15 @@ module.exports = async function trainnlp(manager, say) {
     "跟你聊天真好",
     'greetings.nicetotalktoyou'
   );
-  manager.addDocument('ch', '跟你講話真哈', 'greetings.nicetotalktoyou');
+  manager.addDocument('ch', '跟你講話真好', 'greetings.nicetotalktoyou');
+  manager.addDocument('ch', "你講話真好", 'greetings.nicetotalktoyou');
+  manager.addDocument('ch', '很高興能和你講話','greetings.nicetotalktoyou');
   manager.addDocument('ch', "我很生氣", 'user.angry');
   manager.addDocument('ch', "我很不爽", 'user.angry');
   manager.addDocument('ch', "別跟我講話", 'user.angry');
   manager.addDocument('ch', "別惹我", 'user.angry');
   manager.addDocument('ch', "我現在很氣", 'user.angry');
-  manager.addDocument('ch', "幹你娘", 'user.angry');
+  manager.addDocument('ch', "我現在想扁人", 'user.angry');
   manager.addDocument('ch', "我在生你的氣", 'user.angry');
   manager.addDocument('ch', "我回來了", 'user.back');
   manager.addDocument('ch', '我到家了', 'user.back');
@@ -324,10 +352,13 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '無聊', 'user.bored');
   manager.addDocument('ch', '這真無聊', 'user.bored');
   manager.addDocument('ch', "我越來越無聊", 'user.bored');
+  manager.addDocument('ch', '現在好無聊', 'user.bored');
+  manager.addDocument('ch', "好無聊" , 'user.bored');
   manager.addDocument('ch', '這讓我很無聊', 'user.bored');
   manager.addDocument('ch', '這使我很無聊', 'user.bored');
   manager.addDocument('ch', '我要去工作了', 'user.busy');
   manager.addDocument('ch', "我很忙", 'user.busy');
+  manager.addDocument('ch', "我要去忙了",'user.busy');
   manager.addDocument('ch', "我忙爆了", 'user.busy');
   manager.addDocument('ch', "我正在工作", 'user.busy');
   manager.addDocument('ch', '我有些事情要做', 'user.busy');
@@ -335,6 +366,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '我睡不著', 'user.cannotsleep');
   manager.addDocument('ch', "我睡不好", 'user.cannotsleep');
   manager.addDocument('ch', "我很興奮", 'user.excited');
+  manager.addDocument('ch', '我好激動阿','user.excited');
   manager.addDocument('ch', "我好興奮阿", 'user.excited');
   manager.addDocument('ch', '我喜歡你', 'user.likeagent');
   manager.addDocument('ch', '我真的喜歡你', 'user.likeagent');
@@ -348,6 +380,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '愛你', 'user.lovesagent');
   manager.addDocument('ch', '我愛你', 'user.lovesagent');
   manager.addDocument('ch', "我對你一見鍾情", 'user.lovesagent');
+  manager.addDocument('ch', "能當我的戀人嗎", 'user.lovesagent');
   manager.addDocument('ch', '我真的很愛你', 'user.lovesagent');
   manager.addDocument('ch', '我想我愛上你了', 'user.lovesagent');
   manager.addDocument('ch', '我需要建議', 'user.needsadvice');
@@ -355,6 +388,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '能給我一點建議嗎', 'user.needsadvice');
   manager.addDocument('ch', '我應該怎麼做', 'user.needsadvice');
   
+  //English
   manager.addDocument('en', 'why are you here', 'agent.acquaintance');
   manager.addDocument('en', 'what is your personality', 'agent.acquaintance');
   manager.addDocument('en', 'describe yourself', 'agent.acquaintance');
@@ -727,6 +761,16 @@ module.exports = async function trainnlp(manager, say) {
     'agent.acquaintance',
     "Well, I'm not a person, I'm a virtual agent"
   );
+   manager.addAnswer(
+    'ch',
+    'agent.acquaintance',
+    "我是虛擬的個體"
+  );
+   manager.addAnswer(
+    'ch',
+    'agent.acquaintance',
+    "我並沒有實體存在這世界上"
+  );
   manager.addAnswer(
     'en',
     'agent.acquaintance',
@@ -752,13 +796,23 @@ module.exports = async function trainnlp(manager, say) {
     manager.addAnswer(
     'ch',
     'agent.annoying',
-    "兇三小"
+    "兇三毀"
   );
   manager.addAnswer(
     'ch',
     'agent.annoying',
     "你今天很嗆是吧"
   );
+  manager.addAnswer(
+  'ch',
+  'agent.annoying',
+   "小心氣到中風喔"
+   )
+  manager.addAnswer(
+   'ch',
+   'agent.annoying',
+   "以後部會再惹你了QQ"
+   )
   manager.addAnswer(
     'en',
     'agent.annoying',
@@ -858,6 +912,11 @@ module.exports = async function trainnlp(manager, say) {
     "我才剛出生，不知道我的生日是何時"
   );
   manager.addAnswer(
+  'ch',
+  'agent.birthday',
+  '我很年輕，因為我才剛出生而已'
+  ); 
+  manager.addAnswer(
     'en',
     'agent.birthday',
     "I'm young. I'm not sure of my birth date"
@@ -937,6 +996,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('ch', 'agent.crazy', '保持你的理智');
   manager.addAnswer('en', 'agent.crazy', 'What!? I feel perfectly sane');
   manager.addAnswer('en', 'agent.crazy', "Maybe I'm just a little confused");
+  manager.addAnswer('ch','agent.crazy','也許我有點疑惑');
   manager.addAnswer('ch','agent.fire','請再給我一次機會');
   manager.addAnswer(
     'en',
@@ -975,12 +1035,12 @@ module.exports = async function trainnlp(manager, say) {
     'agent.hobby',
     'Hobby? I have quite a few. Too many to list'
   );
-  manager.addAnswer('ch' , 'agent.hobby' , '太多種興趣了');
-  manager.addAnswer('en', 'agent.hobby', 'Too many hobbies');
-  manager.addAnswer('en', 'agent.hobby', 'I keep finding more new hobbies');
+  manager.addAnswer('ch','agent.hobby','太多種興趣了');
+  manager.addAnswer('en','agent.hobby','Too many hobbies');
+  manager.addAnswer('en','agent.hobby','I keep finding more new hobbies');
   manager.addAnswer('ch','agent.hungry','求知若渴');
   manager.addAnswer('ch','agent.hungry','我想吃');
-  manager.addAnswer('en', 'agent.hungry', 'Hungry for knowledge');
+  manager.addAnswer('en', 'agent.hungry','Hungry for knowledge');
   manager.addAnswer(
     'en',
     'agent.hungry',
@@ -1001,8 +1061,10 @@ module.exports = async function trainnlp(manager, say) {
     'agent.marryuser',
     "I know you can't mean that, but I'm flattered all the same"
   );
+  manager.addAnswer('ch','agent.friend', '當然是你朋友啊');
   manager.addAnswer('ch' , 'agent.myfriend','我當然是你朋友');
   manager.addAnswer('ch' , 'agent.myfriend','當然我們是朋友');
+  manager.addAnswer('ch' , 'agent.myfriend', '朋友一生一起走~~');
   manager.addAnswer('en', 'agent.myfriend', "Of course I'm your friend");
   manager.addAnswer('en', 'agent.myfriend', 'Friends? Absolutely');
   manager.addAnswer('en', 'agent.myfriend', "Of course we're friends");
@@ -1011,7 +1073,9 @@ module.exports = async function trainnlp(manager, say) {
     'agent.myfriend',
     'I always enjoy talking to you, friend'
   );
-   manager.addAnswer('ch', 'agent.occupation', '這是我的辦公室');
+  manager.addAnswer('ch', 'agent.occupation', '這是我的辦公室');
+  manager.addAnswer('ch', 'agent.occupation', '在這裡');
+  manager.addAnswer('ch', 'agent.occupation',  '這裡');
   manager.addAnswer('en', 'agent.occupation', 'Right here');
   manager.addAnswer(
     'en',
@@ -1031,7 +1095,7 @@ module.exports = async function trainnlp(manager, say) {
   );
   manager.addAnswer('ch', 'agent.origin', "我來自虛擬的世界");
   manager.addAnswer('en', 'agent.origin', "I'm from a virtual cosmos");
-  manager.addAnswer('ch' , 'agent.ready', '')
+  manager.addAnswer('ch' , 'agent.ready', '當然!我隨時待命');
   manager.addAnswer('en', 'agent.ready', 'Sure! What can I do for you?');
   manager.addAnswer('en', 'agent.ready', 'For you? Always!');
   manager.addAnswer(
@@ -1060,13 +1124,14 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('en', 'agent.right', 'Of course I am');
   manager.addAnswer('en', 'agent.right', "That's my job");
   manager.addAnswer('en', 'agent.sure', 'Yes');
-  manager.addAnswer('en', 'agent.sure', 'Of course');
+  manager.addAnswer('en', 'agent.sure', 'Of course'); 
   manager.addAnswer('ch', 'agent.sure', '當然');
+  manager.addAnswer('ch', 'agent.sure', '當然會阿');
   manager.addAnswer('en', 'agent.talktome', "Sure! Let's talk!");
   manager.addAnswer('en', 'agent.talktome', "My pleasure. Let's chat.");
   manager.addAnswer('en', 'agent.there', "Of course. I'm always here");
   manager.addAnswer('en', 'agent.there', 'Right where you left me');
-   manager.addAnswer('ch', 'agent.there', "當然我永遠在這裡");
+  manager.addAnswer('ch', 'agent.there', "當然我永遠在這裡");
   manager.addAnswer(
     'en',
     'appraisal.bad',
@@ -1098,16 +1163,20 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('en', 'appraisal.welcome', 'Nice manners!');
   manager.addAnswer('en', 'appraisal.welcome', "You're so polite");
   manager.addAnswer('ch', 'appraisal.welcome', "你真有禮貌");
+  manager.addAnswer('ch', 'appraisal.welcome', '你是個紳士');
   manager.addAnswer('en', 'appraisal.welldone', 'My pleasure');
   manager.addAnswer('en', 'appraisal.welldone', 'Glad I could help');
   manager.addAnswer('ch', 'appraisal.welldone', '我的榮幸');
-   manager.addAnswer('ch', 'appraisal.welldone', '很高興我能幫上忙');
+  manager.addAnswer('ch', 'appraisal.welldone', '開心能幫上忙');
+  manager.addAnswer('ch', 'appraisal.welldone', '很高興我能幫上忙');
   manager.addAnswer('en', 'dialog.holdon', "I'll be waiting");
   manager.addAnswer('en', 'dialog.holdon', "Ok, I'm here");
   manager.addAnswer('ch', 'dialog.holdon', "好的，我在這裡");
   manager.addAnswer('en', 'dialog.hug', 'I love hugs!');
   manager.addAnswer('ch', 'dialog.hug','我喜歡擁抱');
+  manager.addAnswer('ch', 'dialog.hug', '你要抱一下嗎?');
   manager.addAnswer('en', 'dialog.hug', 'Hugs are the best!');
+  manager.addAnswer('ch', 'dialog.hug', '擁抱是最好的');
   manager.addAnswer(
     'en',
     'dialog.idontcare',
@@ -1116,6 +1185,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('en', 'dialog.idontcare', "Already then. Let's move on");
   manager.addAnswer('en', 'dialog.sorry', "It's okay. No worries");
   manager.addAnswer('en', 'dialog.sorry', "It's cool");
+  manager.addAnswer('ch',  'dialog.sorry', '沒問題的，別擔心');
   manager.addAnswer('ch', 'dialog.sorry', "沒關係");
   manager.addAnswer('en', 'greetings.bye', 'Till next time');
   manager.addAnswer('en', 'greetings.bye', 'see you soon!');
@@ -1123,9 +1193,11 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('ch', 'greetings.bye', '待會見');
   manager.addAnswer('en', 'greetings.hello', 'Hey there!');
   manager.addAnswer('en', 'greetings.hello', 'Greetings!');
+  manager.addAnswer('ch', 'greetings.hello', '招呼');
   manager.addAnswer('ch', 'greetings.hello', '你好嗎');
   manager.addAnswer('en', 'greetings.howareyou', 'Feeling wonderful!');
   manager.addAnswer('ch', 'greetings.howareyou', '感覺還不錯');
+  manager.addAnswer('ch','greetings.howareyou','生活真美好');
   manager.addAnswer(
     'en',
     'greetings.howareyou',
@@ -1180,6 +1252,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('en', 'user.angry', 'Take a deep breath');
   manager.addAnswer('ch', 'user.back' , '歡迎回來，有什麼我能幫忙的??');
   manager.addAnswer('ch', 'user.back' , '很高興你回來，有什麼我能做的嗎??');
+  manager.addAnswer('ch', 'user.back' , '歡迎歸來');
   manager.addAnswer('en', 'user.back', 'Welcome back. What can I do for you?');
   manager.addAnswer(
     'en',
@@ -1192,7 +1265,7 @@ module.exports = async function trainnlp(manager, say) {
     "If you're bored, you could plan your dream vacation"
   );
   manager.addAnswer('ch','user.bored','假如你無聊的話，你可以想想你的夢想');
-  manager.addAnswer('ch','user.bored','無聊?那你有看過刺蝟洗澡嗎?');
+  manaer.addAnswer('ch','user.bored','無聊?那你有看過刺蝟洗澡嗎?');
   manager.addAnswer(
     'en',
     'user.bored',
@@ -1222,8 +1295,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addAnswer('en', 'user.excited', "That's great. I'm happy for you");
   manager.addAnswer('en', 'user.likeagent', 'Likewise!');
   manager.addAnswer('en', 'user.likeagent', "That's great to hear");
-  manager.addAnswer('ch', 'user.likeagent', "很高興能聽到");
-  manager.addAnswer('ch', 'user.likeagent', "同");
+  manager.addAnswer('ch', 'user.likeagent', "同上");
   manager.addAnswer('ch', 'user.testing' , "我喜歡被測驗，這能讓我變得更為敏銳");
   manager.addAnswer('ch', 'user.testing',"希望我能通過，這樣我也比較輕鬆")
   manager.addAnswer(
@@ -1275,13 +1347,9 @@ module.exports = async function trainnlp(manager, say) {
     'agent.acquaintance',
     "我是機器人"
   );
-   manager.addAnswer(
-    'ch',
-    'agent.food',
-    "吃屎吧"
-  );
   manager.addAnswer('ch','agent.food',"要吃什麼呢??");
   manager.addAnswer('ch','agent.food',"來叫外送");
+  manager.addAnswer('ch','agent.food',"吃什麼?");
   manager.addAnswer(
     'ch',
     'agent.food',
@@ -1297,10 +1365,6 @@ module.exports = async function trainnlp(manager, say) {
     'agent.hi',
     "嗨"
   );
-   manager.addAnswer(
-    'ch',
-    'agent.hi',
-    "奶竹"
-  );
+  
   manager.save('./model.nlp', true);
 };

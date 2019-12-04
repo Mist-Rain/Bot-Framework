@@ -60,7 +60,7 @@ server.post('/', async function(req, res, next){
 					bot.sendAPI(platform, 'reply', req, reply);
 					gacha_result = undefined;
 				} else if(payload === "傳送訊息"){
-						reply = await bot.messageHandler(platform , '功能表', '請選擇要傳送給好友或群組');
+						reply = await bot.messageHandler(platform , '功能表', '請選擇要傳送給朋友或群組');
 						console.log(reply);
 						bot.sendAPI(platform, 'reply', req, reply);
 						/*
@@ -208,7 +208,7 @@ server.post('/', async function(req, res, next){
 			con_label = 'one';
 			con_action = '';
 			
-			if(reply_message.length >= 8){
+			if(reply_message.indexOf("您已邀請") > -1){
 				user_nickname = await plugin.run('plugin_sql', 'getUser_nickname', user_id);
 				let invite_user_id = await plugin.run('plugin_sql', 'getUserId', invite_nickname);
 				let platform = await plugin.run('plugin_sql', 'getPlatform', invite_nickname);
@@ -220,19 +220,21 @@ server.post('/', async function(req, res, next){
 		} else if(con_action === '好友邀請' && skip < 1){
 			friend_nickname = received_message;
 			let reply_message;
-			let isExist = await plugin.run('plugin_sql', 'FriendIsExist', user_id, friend_nickname);
-			if(isExist){
+			let friendisExist = await plugin.run('plugin_sql', 'FriendIsExist', user_id, friend_nickname);
+			let UserIsExist = await plugin.run('plugin_sql', 'UserIsExist', friend_nickname);
+			if(friendisExist){
 				reply_message = "您與" + friend_nickname + "已經是好友了";
-			}
-			else{
+			} else if(UserIsExist && !friendisExist){
 				reply_message = "已向" + friend_nickname + "發出好友邀請";
+			} else if(!UserIsExist){
+				reply_message = "不存在此用戶";
 			}
 			reply = await bot.messageHandler(platform ,reply_message);
 			bot.sendAPI(platform, 'reply', req, reply);
 			con_label = 'one';
 			con_action = '';
 			
-			if(!isExist){
+			if(!friendisExist){
 				user_nickname = await plugin.run('plugin_sql', 'getUser_nickname', user_id);
 				let invite_user_id = await plugin.run('plugin_sql', 'getUserId', friend_nickname);
 				let platform = await plugin.run('plugin_sql', 'getPlatform', friend_nickname);
