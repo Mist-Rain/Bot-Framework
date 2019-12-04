@@ -3,7 +3,7 @@ Support FB and LINE platforms.<br>
 <b>Remember to set your key in the file ``key_config.ini``.</b>
 * [Bot Basic APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#bot-basic-apis)
 * [Plugin-Manager APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#plugin-manager-apis)
-* [Official Plugin APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#official-plugin-apis)
+* [Plugin APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#official-plugin-apis)
 ***
 ## Bot Basic APIs
 Provide the basic function of creating a chat bot.
@@ -136,6 +136,7 @@ Run the plugin with a number of arguments.
 We provide some plugins to make it easier for the developers to create their chatbots and to increase the diversity of the functions.
 
 [Devlopers plugin](https://github.com/Mist-Rain/Bot-Framework/tree/master/docs/Plugins)
+***
 
 [TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
 
