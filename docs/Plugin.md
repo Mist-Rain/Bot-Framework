@@ -1,4 +1,4 @@
-# Plugins
+# Plugin
 
 You can write your own plugins or use others to extend your bot.
 
