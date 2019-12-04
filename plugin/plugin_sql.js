@@ -50,8 +50,7 @@ class plugin_sql extends plugin_format{
 		} else if(func === 'FriendIsExist'){
 			let FriendIsExist = await this.FriendIsExist(...args);
 			return FriendIsExist;
-		}
-		else {
+		} else {
 			console.log("Unknown function.");
 		}
 	}
