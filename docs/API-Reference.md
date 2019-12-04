@@ -67,28 +67,28 @@ Returns ``String`` - The user's id.
 Returns ``String`` - payloads like button event's payload
 
 ### lineVerify(req, res)
-It will print the success message of verifying LINE webhook
+It will print the success message of verifying LINE webhook.
 * ``res`` Object - The http response (The argument ``res`` below are all the same)
 
 Returns ``undefined``
 
 ### lineCon(req, res)
-Verify LINE webhook event, send ``200`` or ``403``
+Verify LINE webhook event, send ``200`` or ``403``.
 
 Returns ``undefined``
 
 ### fbSubscribe(req, res)
-Handle fb page subscribe event(GET), send ``200`` or ``403``
+Handle fb page subscribe event(GET), send ``200`` or ``403``.
 
 Returns ``undefined``
 
 ### fbCon(req, res)
-Verify FB webhook event, send ``200`` or ``404``
+Verify FB webhook event, send ``200`` or ``404``.
  
 Returns ``undefined``
 
 ### connect(platform, req, res)
-Apply to judge the message source when crossing platform happen
+Apply to judge the message source when crossing platform happen.
 
 * ``platform`` String - the platform of message source
 
@@ -115,7 +115,7 @@ Returns ``undefined``
 Returns ``undefined``
 
 ### messageHandler(platform, message)
-Transform the message into the JSON format to fit the rule of the platform
+Transform the message into the JSON format to fit the rule of the platform.
 * ``platform`` String - the platform of message that you want to transform
 * ``message`` String
 
@@ -123,6 +123,12 @@ Returns ``Object`` - JSON
 
 ***
 ## Plugin-Manager APIs
+
+### run(class_name,...args)
+Run the plugin with a number of arguments.
+* ``class_name`` String - the plugin name that you want to use
+* ``...args`` - the argument what the plugin need, you can be referred to the API below.
+
 ***
 ## Official Plugin APIs
 
