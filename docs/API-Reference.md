@@ -125,7 +125,7 @@ Returns ``Object`` - JSON
 ***
 ## Plugin-Manager APIs
 
-### run(class_name,...args)
+### run(class_name, ...args)
 Run the plugin with a number of arguments.
 * ``class_name`` String - the plugin name that you want to use
 * ``...args`` - the argument what the plugin need, you can be referred to the API below.
