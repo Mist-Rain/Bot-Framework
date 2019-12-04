@@ -1,12 +1,18 @@
-// crossPlatform.js
-
-// bot settings
+/* 
+ * crossPlatform.js
+ * Use only one bot to handle two or more platforms webhook event.
+ */ 
+ 
+//bot settings
 const
 	base = require('./base.js'),
 	server = base.server,
 	
 	// listen port 8080
 	bot = new base(8080);
+
+//reply
+let reply = undefined;
 
 server.post('/', async function(req, res, next){
 	// line webhook verify
@@ -25,5 +31,6 @@ server.post('/', async function(req, res, next){
 });
 
 server.get('/', function(req, res, next){
+	// fb subscribe event
 	bot.fbSubscribe(req, res);
 });
