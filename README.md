@@ -28,7 +28,7 @@ You can find the framework documentation on the website.
 * Platforms
   * [Messenger](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md#Messenger)
   * [LINE](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md#LINE)
-* [API Reference](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md)
+* [API Reference](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#api-reference)
 
 ## Examples
 
