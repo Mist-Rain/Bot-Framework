@@ -26,8 +26,8 @@ You can find the framework documentation on the website.
 * [Getting Started](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Getting-Started.md#getting_started)
 * [Plugins](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Plugins.md)
 * Platforms
-  * [Messenger](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md)
-  * [LINE](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md)
+  * [Messenger](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md#Messenger)
+  * [LINE](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md#LINE)
 * [API Reference](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md)
 
 ## Examples
