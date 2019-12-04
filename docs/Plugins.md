@@ -4,7 +4,7 @@ You can write your own plugins or use others to extend your bot.
 
 ## How to Use
 
-First, extend this class and create your own plugin.
+First, extend this class and put the function you want to execute into the ``run`` function.
 
 ```javascript
 class plugin_format{
@@ -112,4 +112,42 @@ console.log(gacha_result);
 ```
 Just put one argument if the number of function in the plugin is only one.
 
-## Used in Chatbot
+## Used in LINE Chatbot
+
+```javascript
+/* 
+ * test_bot.js
+ */
+ 
+//bot settings
+const
+	plugin = require('./plugin_manager'),
+	base = require('./base.js'),
+	server = base.server,
+	
+	// listen port 8080
+	bot = new base(8080);
+	
+// reply
+let reply = undefined;
+
+server.post('/', async function(req, res, next){
+	// line webhook verify
+	bot.lineVerify(req, res);
+	
+	// judge the platform by received message
+	let platform = bot.getPlatform(req);
+	let received_message = bot.getReceivedMessage(req);
+	
+	// receiving webhook event
+	bot.connect(platform, req, res);
+	
+	// transform the json format and send
+	if(received_message === "gacha"){
+		reply = await bot.messageHandler(platform, plugin.run('plugin_game', 10));
+	} else {
+		reply = await bot.messageHandler(platform, received_message);
+	}
+	bot.sendAPI(platform, 'reply', req, reply);
+});
+```
