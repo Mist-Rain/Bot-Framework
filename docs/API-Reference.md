@@ -67,15 +67,60 @@ Returns ``String`` - The user's id.
 Returns ``String`` - payloads like button event's payload
 
 ### lineVerify(req, res)
+It will print the success message of verifying LINE webhook
 * ``res`` Object - The http response (The argument ``res`` below are all the same)
 
-Returns ``undefined`` - It will print the success message of verifying LINE webhook
+Returns ``undefined``
 
 ### lineCon(req, res)
-Returns ``undefined`` - Verify LINE webhook event
+Verify LINE webhook event, send ``200`` or ``403``
+
+Returns ``undefined``
 
 ### fbSubscribe(req, res)
-Returns ``undefined`` - Handle fb page subscribe event(GET), send ``200`` or ``403``
+Handle fb page subscribe event(GET), send ``200`` or ``403``
+
+Returns ``undefined``
+
+### fbCon(req, res)
+Verify FB webhook event, send ``200`` or ``404``
+ 
+Returns ``undefined``
+
+### connect(platform, req, res)
+Apply to judge the message source when crossing platform happen
+
+* ``platform`` String - the platform of message source
+
+Returns ``undefined``
+
+### sendAPI(platform, event, req, message)
+You can combine this API with ``getPlatform(req)`` if you don't know the platform of messages.
+* ``platform`` String - the platform that you want to send
+* ``event`` String - decide to push or reply
+* ``message`` String - the message that you want to send, it should be handled by ``messageHandler``
+
+Returns ``undefined``
+
+### lineSendAPI(event, req, message)
+* ``event`` String - decide to push or reply
+* ``message`` String - the message that you want to send, it should be handled by ``messageHandler`` first
+
+Returns ``undefined``
+
+### fbSendAPI(event, req, message)
+* ``event`` String - decide to push or reply
+* ``message`` String - the message that you want to send, it should be handled by ``messageHandler`` first
+
+Returns ``undefined``
+
+### messageHandler(platform, message)
+Transform the message into the JSON format to fit the rule of the platform
+* ``platform`` String - the platform of message that you want to transform
+* ``message`` String
+
+Returns ``Object`` - JSON
+
 ***
 ## Plugin-Manager APIs
 ***
