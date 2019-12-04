@@ -7,10 +7,12 @@ Use reverse proxy service like [ngrok](https://dashboard.ngrok.com/get-started).
 
 ## Create Messaging API Channel(for LINE)
 [LINE Developer](https://developers.line.biz/console/register/messaging-api/provider/)
+
 For more details, read our [LINE guide](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md#line).
 
 ## Add an Application(for FB)
 [FB Developer](https://developers.facebook.com/)
+
 For more details, read our [FB guide](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md#messenger).
 
 ### Precautions
