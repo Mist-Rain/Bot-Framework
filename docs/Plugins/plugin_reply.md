@@ -5,4 +5,4 @@
 
 Returns ``String`` - the message through NLP
 
-[Sourcecode](https://github.com/Mist-Rain/Bot-Framework/blob/master/plugin/plugin_nlp.js)
+[Sourcecode](https://github.com/Mist-Rain/Bot-Framework/blob/master/plugin/plugin_reply.js)
