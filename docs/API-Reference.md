@@ -130,9 +130,10 @@ Run the plugin with a number of arguments.
 * ``class_name`` String - the plugin name that you want to use
 * ``...args`` - the argument what the plugin need, you can be referred to the API below.
 
-<b>[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)</b>
+[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
 ***
 ## Official Plugin APIs
 
-<b>[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)</b>
+[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
+
 <b>[BACK](https://github.com/Mist-Rain/Bot-Framework#documentation)</b>
