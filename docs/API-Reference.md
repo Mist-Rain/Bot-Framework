@@ -132,7 +132,8 @@ Run the plugin with a number of arguments.
 
 [TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
 ***
-## Official Plugin APIs
+# Official Plugin APIs
+We provide some plugins to make it easier for the developers to create their chatbots and to increase the diversity of the functions.
 
 [TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
 
