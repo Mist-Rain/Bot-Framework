@@ -7,9 +7,11 @@ Use reverse proxy service like [ngrok](https://dashboard.ngrok.com/get-started).
 
 ## Create Messaging API Channel(for LINE)
 [LINE Developer](https://developers.line.biz/console/register/messaging-api/provider/)
+For more details, read our [LINE guide](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/LINE.md#line).
 
 ## Add an Application(for FB)
 [FB Developer](https://developers.facebook.com/)
+For more details, read our [FB guide](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/Platforms/Messenger.md#messenger).
 
 ### Precautions
 Remember to set the Webhook URL with the SSL URL you just got.
@@ -34,15 +36,21 @@ In FB platform, you will need the ``page_access_token``.
 
 Simple example of echo bot receiving line and fb webhook event
 ```javascript
-// crossPlatform.js
-
-// bot settings
+/* 
+ * crossPlatform.js
+ * Use only one bot to handle two or more platforms webhook event.
+ */ 
+ 
+//bot settings
 const
 	base = require('./base.js'),
 	server = base.server,
 	
 	// listen port 8080
 	bot = new base(8080);
+
+//reply
+let reply = undefined;
 
 server.post('/', async function(req, res, next){
 	// line webhook verify
@@ -61,6 +69,7 @@ server.post('/', async function(req, res, next){
 });
 
 server.get('/', function(req, res, next){
+	// fb subscribe event
 	bot.fbSubscribe(req, res);
 });
 ```
