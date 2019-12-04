@@ -152,4 +152,4 @@ server.post('/', async function(req, res, next){
 });
 ```
 
-For more information, you can read the [API document].(https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#API_reference)
+For more information, you can read the [API document](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#API_reference).
