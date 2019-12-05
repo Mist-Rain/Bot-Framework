@@ -16,7 +16,7 @@ The framework highly depends on async function syntax, the use of sql and ssl se
 
 ## Community
 
-You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/Gjaamg). Join now!
+You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/dSXSemU). Join now!
 
 ## <a name="documentation"></a>Documentation
 
