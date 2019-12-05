@@ -12,10 +12,10 @@ When the bot receive messages, call this API to reply.
 
 Returns ``undefined``
 
-### push(req, message, line_channel_access_token)
+### push(user_id, message, line_channel_access_token)
 Initiate a sending message.
 
-* ``req`` Object - http request
+* ``user_id`` Object - http request
 * ``message`` String - it should be handled by ``messsageHandler`` first
 * ``line_channel_access_token`` String - the secret key of the line webhook event validation
 
