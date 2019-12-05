@@ -1,13 +1,13 @@
 # <a name="api-reference"></a>JavaScript Raw APIs
 Support FB and LINE platforms.<br>
 <b>Remember to set your key in the file ``key_config.ini``.</b>
-* [Bot Basic APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#bot-basic-apis)
+* [Connection Manager APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#connection-manager-apis)
 * [Plugin-Manager APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#plugin-manager-apis)
 * [Plugin APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#plugin-apis)
 ***
-## Bot Basic APIs
+## Connection Manager APIs
 Provide the basic function of creating a chat bot.
-Use them with ``require('./base.js')``
+Use them with ``require('./connection_manager.js')``
 ### server
 The express server
 ```javascript
