@@ -9,6 +9,9 @@ const
 	server = connection_manager.server,
 	bot = new connection_manager(8080);
 
+// payload action
+action = '';
+
 server.post('/', async function(req, res, next){
 	// line webhook url verify
 	bot.lineVerify(req, res);
@@ -33,6 +36,12 @@ server.post('/', async function(req, res, next){
 				handled_reply = bot.messageHandler(platform, received_message, '功能表');
 				bot.sendAPI(platform, 'reply', req, handled_reply);
 			}
+		} else if(action === '建立暱稱'){
+			nickname = received_message;
+			create_result = await plugin.run('plugin_sql', 'createNickname', platform, user_id, nickname);
+			handled_reply = bot.messageHandler(platform, create_result);
+			bot.sendAPI(platform, 'reply', req, handled_reply);
+			action = '';
 		} else if(action === '傳送訊息_好友'){
 			if(received_message.indexOf('#') > -1){
 				sender_nickname = await plugin.run('plugin_sql', 'getUser_nickname', user_id);
@@ -97,7 +106,7 @@ server.post('/', async function(req, res, next){
 					if(in_group){
 						reply = await bot.messageHandler(platform, invite_nickname + " 已經在群組中了唷！");
 						bot.sendAPI(platform, 'reply', req, reply);
-					} else if(!in_group){ 
+					} else if(!in_group){
 						handled_reply = await bot.messageHandler(platform, "您已邀請 " + invite_nickname + " 進入 " + join_group + " 群組");
 						bot.sendAPI(platform, 'reply', req, handled_reply);
 						
@@ -147,6 +156,13 @@ server.post('/', async function(req, res, next){
 	// payload: defined
 	} else if(typeof payload !== 'undefined'){
 		switch(payload){
+			case '第一次使用_好':
+				reply = await bot.messageHandler(platform, '請輸入您要取的綽號');
+				bot.sendAPI(platform, 'reply', req, reply);
+				action = '建立暱稱';
+				break;
+			case '第一次使用_不要':
+				break;
 			case '抽卡':
 				gacha_result = plugin.run('plugin_game', 10);
 				handled_reply = await bot.messageHandler(platform, gacha_result);
@@ -158,22 +174,22 @@ server.post('/', async function(req, res, next){
 				break;
 			case '傳送訊息_好友':
 				friend = await plugin.run('plugin_sql', 'getFriendList', user_id);
-				if(typeof friend !== 'undefined'){
+				if(friend.length !== 0){
 					handled_reply = await bot.messageHandler(platform, "請選擇要傳送的對象:\n" + friend + "\n並傳送訊息(格式: <好友>#<訊息>)");
 					bot.sendAPI(platform, 'reply', req, handled_reply);
 					action = '傳送訊息_好友';
-				} else if(typeof friend === 'undefined'){
+				} else if(friend.length === 0){
 					handled_reply = await bot.messageHandler(platform, "沒朋友哭哭哦，可以考慮+自己好友哦Ou<");
 					bot.sendAPI(platform, 'reply', req, handled_reply);
 				}
 				break;
 			case '傳送訊息_群組':
 				group = await plugin.run('plugin_sql', 'getGroupName', user_id);
-				if(typeof group !== 'undefined'){
+				if(group.length !== 0){
 					handled_reply = await bot.messageHandler(platform, "請選擇要傳送的群組:\n" + group + "\n並傳送訊息(<群組>#<訊息>)");
 					bot.sendAPI(platform, 'reply', req, handled_reply);
 					action = '傳送訊息_群組';
-				} else if(typeof group === 'undefined'){
+				} else if(group.length === 0){
 					handled_reply = await bot.messageHandler(platform, "沒有群組QQ，也可以用群組跟自己聊天>vO");
 					bot.sendAPI(platform, 'reply', req, handled_reply);
 				}
@@ -185,7 +201,7 @@ server.post('/', async function(req, res, next){
 				break;
 			case '群組邀請':
 				group_list = await plugin.run('plugin_sql', 'getGroupName', user_id);
-				if(typeof group_list !== 'undefined'){
+				if(typeof group_list.length !== 0){
 					handled_reply = await bot.messageHandler(platform, '想邀請誰進入哪個群組呀>w<\n' + group_list + '\n格式：<群組名稱>#<暱稱>');
 					bot.sendAPI(platform, 'reply', req, handled_reply);
 					action = '群組邀請';

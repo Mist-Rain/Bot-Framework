@@ -54,12 +54,12 @@ class handler{
 				  {
 					"content_type":"text",
 					"title":"好",
-					"payload":"好",
+					"payload":"第一次使用_好",
 					"image_url":""
 				  },{
 					"content_type":"text",
 					"title":"不要",
-					"payload":"不要",
+					"payload":"第一次使用_不要",
 					"image_url":""
 				  }
 				]

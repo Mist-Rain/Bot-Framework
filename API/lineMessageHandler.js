@@ -77,7 +77,7 @@ class handler{
 							"action": {
 								"type": "postback",
 								"label": "好",
-								"data": "好",
+								"data": "第一次使用_好",
 								"text": ""
 							}
 						},{
@@ -85,7 +85,7 @@ class handler{
 							"action": {
 								"type": "postback",
 								"label": "不要",
-								"data": "不要",
+								"data": "第一次使用_不要",
 								"text": ""
 							}
 						}
