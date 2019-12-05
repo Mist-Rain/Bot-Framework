@@ -4,9 +4,9 @@ This is a framework make you create chatbot more easily.
 
 <b>Support FB and LINE platform.</b>
 
-* #### Flexible - Build your own plugin and use it at any time
+* #### Flexible - Use multiple plugins at the same time
+* #### Multifunction - Build your own plugin and use it at any time
 * #### Intelligent - Use NLP to perform situational conversation
-* #### Multifunction - Use multiple plugins at the same time
 
 ## Requirements
 The framework highly depends on async function syntax, the use of sql and ssl server, so you must make sure your runtime meets the following requirements:
