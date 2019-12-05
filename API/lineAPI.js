@@ -35,8 +35,7 @@ class API{
 	}
 	
 	// push API
-	push(req, message, line_channel_access_token){
-		let user_id = req;
+	push(user_id, message, line_channel_access_token){
 		request({
             "uri": "https://api.line.me/v2/bot/message/push",
             "method": "POST",

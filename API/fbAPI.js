@@ -35,8 +35,7 @@ class API{
 		});
 	}
 	
-	push(req, message, fb_PAGE_ACCESS_TOKEN){
-		let sender_psid = req;
+	push(receiver_psid, message, fb_PAGE_ACCESS_TOKEN){
 		request({
 			"uri": "https://graph.facebook.com/v4.0/me/messages",
 			"qs": {
@@ -45,7 +44,7 @@ class API{
 			"method": "POST",
 			"json": {
 				"recipient":{
-						"id": sender_psid
+						"id": receiver_psid
 				},
 				"message": message
 			}

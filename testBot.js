@@ -5,9 +5,9 @@
 // bot settings
 const
 	plugin = require('./plugin_manager.js'),
-	base = require('./base.js'),
-	server = base.server,
-	bot = new base(8080);
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
+	bot = new connection_manager(8080);
 
 server.post('/', async function(req, res, next){
 	// line webhook url verify
