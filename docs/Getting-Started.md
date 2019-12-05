@@ -41,11 +41,11 @@ Simple example of echo bot receiving line and fb webhook event
  
 //bot settings
 const
-	base = require('./base.js'),
-	server = base.server,
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
 	
 	// listen port 8080
-	bot = new base(8080);
+	bot = new connection_manager(8080);
 
 //reply
 let reply = undefined;
