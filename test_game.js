@@ -1,26 +1,41 @@
-const plugin = require("./plugin_manager.js");
+/* 
+ * test_bot.js
+ */
+ 
+//bot settings
+const
+	plugin = require('./plugin_manager'),
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
+	
+	// listen port 8080
+	bot = new connection_manager(8080);
+	
+// reply
+let reply = undefined;
 
-let gacha_result = plugin.run('plugin_game', 10);
-console.log(gacha_result);
-
-str = '123456';
-console.log(str.indexOf('7'));
-
-const sleep = ms => {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-let gachaResult = () => {
-	return sleep(1000).then(console.log(plugin.run('plugin_game', 10)));
-}
-
-const gachaLoop = async _ => {
-	console.log('Start');
-	while(true){
-		console.log();
-		await gachaResult();
+server.post('/', async function(req, res, next){
+	// line webhook verify
+	bot.lineVerify(req, res);
+	
+	// judge the platform by received message
+	let platform = bot.getPlatform(req);
+	let received_message = bot.getReceivedMessage(req);
+	
+	// receiving webhook event
+	bot.connect(platform, req, res);
+	
+	if(received_message === '抽卡'){
+		reply = await bot.messageHandler(platform, plugin.run('plugin_game', 10));
+	} else {
+		reply = await bot.messageHandler(platform, received_message);
 	}
-}
+	
+	// transform the json format and send
+	bot.sendAPI(platform, 'reply', req, reply);
+});
 
-//gachaResult();
-//gachaLoop();
+server.get('/', async function(req, res, next){
+	// fb page subscribe event
+	bot.fbSubscribe(req, res);
+});
