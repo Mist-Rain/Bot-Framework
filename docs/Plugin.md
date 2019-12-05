@@ -112,7 +112,7 @@ console.log(gacha_result);
 ```
 Just put one argument if the number of function in the plugin is only one.
 
-## Used in LINE Chatbot
+## Used in Chatbot (take LINE for example)
 
 ```javascript
 /* 
