@@ -12,11 +12,11 @@ Use them with ``require('./base.js')``
 The express server
 ```javascript
 const
-	base = require('./base.js'),
-	server = base.server,
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
 	
 	// listen port 8080
-	bot = new base(8080);
+	bot = new connection_manager(8080);
   
 server.post('/', (req, res, next) => {
   // do something
@@ -33,11 +33,11 @@ Get the platform by received messages(not webhook verifing event).
 Returns ``String`` - The platform is either ``line`` or ``fb``.
 ```Javascript
 const
-	base = require('./base.js'),
-	server = base.server,
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
 	
 	// listen port 8080
-	bot = new base(8080);
+	bot = new connection_manager(8080);
 
 server.post('/', (req, res, next) => {
 	// line webhook verify
