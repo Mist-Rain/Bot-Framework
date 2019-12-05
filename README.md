@@ -4,8 +4,8 @@ This is a framework make you create chatbot more easily.
 
 <b>Support FB and LINE platform.</b>
 
-* #### Flexible - Use multiple plugins at the same time
 * #### Multifunction - Build your own plugin and use it at any time
+* #### Flexible - Use multiple plugins at the same time
 * #### Intelligent - Use NLP to perform situational conversation
 
 ## Requirements
