@@ -7,12 +7,12 @@ You can write your own plugins or use others to extend your bot.
 First, extend this class and put the function you want to execute into the ``run`` function.
 
 ```javascript
-class plugin_format{
+class plugin_adapater{
  run(){
  };
 };
 
-module.exports = plugin_format;
+module.exports = plugin_adapater;
 ```
 
 Take the ``plugin_game.js`` that we made for example:
@@ -22,9 +22,9 @@ Take the ``plugin_game.js`` that we made for example:
  *	plugin_game.js
  *	gacha: Gacha game.
  */
-const plugin_format = require('../plugin_format.js');
+const plugin_adapater = require('../plugin_adapater.js');
 
-class plugin_game extends plugin_format {
+class plugin_game extends plugin_adapater {
 	run(...args){
 		let result = this.gacha(arguments[0]);
 		return result;
