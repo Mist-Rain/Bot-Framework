@@ -12,7 +12,7 @@ class plugin_adapater{
  };
 };
 
-module.exports = plugin_adapater;
+module.exports = plugin_adapter;
 ```
 
 Take the ``plugin_game.js`` that we made for example:
@@ -22,9 +22,9 @@ Take the ``plugin_game.js`` that we made for example:
  *	plugin_game.js
  *	gacha: Gacha game.
  */
-const plugin_adapater = require('../plugin_adapater.js');
+const plugin_adapter = require('../plugin_adapter.js');
 
-class plugin_game extends plugin_adapater {
+class plugin_game extends plugin_adapter {
 	run(...args){
 		let result = this.gacha(arguments[0]);
 		return result;
