@@ -121,7 +121,7 @@ Transform the message into the JSON format to fit the rule of the platform.
 
 Returns ``Object`` - JSON
 
-[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
+[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#bot-framework-raw-apis)
 ***
 ## Plugin-Manager APIs
 
@@ -130,7 +130,7 @@ Run the plugin with a number of arguments.
 * ``class_name`` String - the plugin name that you want to use
 * ``...args`` - the argument what the plugin need, you can be referred to the API below.
 
-[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
+[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#bot-framework-raw-apis)
 ***
 # Plugin APIs
 We provide some plugins to make it easier for the developers to create their chatbots and to increase the diversity of the functions.
@@ -138,6 +138,6 @@ We provide some plugins to make it easier for the developers to create their cha
 [Devlopers plugin](https://github.com/Mist-Rain/Bot-Framework/tree/master/docs/Plugins)
 ***
 
-[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#javascript-raw-apis)
+[TOP](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#bot-framework-raw-apis)
 
 <b>[BACK](https://github.com/Mist-Rain/Bot-Framework#documentation)</b>
