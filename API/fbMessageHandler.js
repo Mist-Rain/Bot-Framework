@@ -25,6 +25,11 @@ class handler{
 					"image_url":""
 				  },{
 					"content_type":"text",
+					"title":"定時提醒",
+					"payload":"定時提醒",
+					"image_url":""
+				  },{
+					"content_type":"text",
 					"title":"傳送訊息",
 					"payload":"傳送訊息",
 					"image_url":""

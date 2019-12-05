@@ -86,6 +86,20 @@ server.post('/', async function(req, res, next){
 				bot.sendAPI(platform, 'reply', req, handled_reply);
 			}
 			action = '';
+		} else if(action === '定時提醒'){
+			if(received_message.search(/^[1-5]*[0-9]：[1-5]*[0-9]#.+/g) > -1){
+				notify_minute = received_message.substring(0, received_message.indexOf('：'));
+				notify_second = received_message.substring(received_message.indexOf('：')+1, received_message.indexOf('#'));
+				notify_str = received_message.substring(received_message.indexOf('#')+1);
+				if(platform === 'fb'){
+					handled_reply = bot.messageHandler(platform, '待會提醒你唷！記得理我OuO');
+					bot.sendAPI(platform, 'reply', req, handled_reply);
+				}
+				next();
+			} else {
+				handled_reply = bot.messageHandler(platform, '格式錯誤QQ');
+				bot.sendAPI(platform, 'reply', req, handled_reply);
+			}
 		} else if(action === '建立群組_輸入群組名稱'){
 			group_name = received_message;
 			if(group_name !== "取消"){
@@ -168,6 +182,11 @@ server.post('/', async function(req, res, next){
 				handled_reply = await bot.messageHandler(platform, gacha_result);
 				bot.sendAPI(platform, 'reply', req, handled_reply);
 				break;
+			case '定時提醒':
+				handled_reply = await bot.messageHandler(platform, "想要我在幾分幾秒後提醒你甚麼事呢Ov<？\n格式: <0-59>：<0-59>#<想提醒的事>\n注意：冒號為\"全形\"");
+				bot.sendAPI(platform, 'reply', req, handled_reply);
+				action = '定時提醒';
+				break;
 			case '傳送訊息':
 				handled_reply = await bot.messageHandler(platform , '功能表', '請選擇要傳送給朋友或群組');
 				bot.sendAPI(platform, 'reply', req, handled_reply);
@@ -238,6 +257,19 @@ server.post('/', async function(req, res, next){
 				bot.sendAPI(platform, 'reply', req, reply);
 				break;
 		}
+	}
+});
+
+server.post('/', async function(req, res, next){
+	if(action === '定時提醒'){
+		var schedule = require("node-schedule");
+		notify_ms = notify_minute*60*1000 + notify_second*1000;
+		var notify_date = new Date(Date.now() + notify_ms);
+		var j = schedule.scheduleJob(notify_date, async function(){
+			reply = await bot.messageHandler(platform, "來自"+ notify_minute+ "分"+ notify_second+ "秒前的提醒"+ "\n記得要<"+notify_str+">！\n٩（๑òωó๑）۶");
+			bot.sendAPI(platform, 'reply', req, reply);
+		});
+		action = '';
 	}
 });
 

@@ -33,6 +33,14 @@ class handler{
 							"type": "action",
 							"action": {
 								"type": "postback",
+								"label": "定時提醒",
+								"data": "定時提醒",
+								"text": ""
+							}
+						},{
+							"type": "action",
+							"action": {
+								"type": "postback",
 								"label": "傳送訊息",
 								"data": "傳送訊息",
 								"text": ""
