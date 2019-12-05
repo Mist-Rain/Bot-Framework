@@ -122,11 +122,11 @@ Just put one argument if the number of function in the plugin is only one.
 //bot settings
 const
 	plugin = require('./plugin_manager'),
-	base = require('./base.js'),
-	server = base.server,
+	connection_manager = require('./connection_manager.js'),
+	server = connection_manager.server,
 	
 	// listen port 8080
-	bot = new base(8080);
+	bot = new connection_manager(8080);
 	
 // reply
 let reply = undefined;
