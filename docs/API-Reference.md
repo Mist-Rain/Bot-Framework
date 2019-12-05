@@ -1,4 +1,4 @@
-# <a name="api-reference"></a>JavaScript Raw APIs
+# <a name="api-reference"></a>Bot Framework Raw APIs
 Support FB and LINE platforms.<br>
 <b>Remember to set your key in the file ``key_config.ini``.</b>
 * [Connection Manager APIs](https://github.com/Mist-Rain/Bot-Framework/blob/master/docs/API-Reference.md#connection-manager-apis)
