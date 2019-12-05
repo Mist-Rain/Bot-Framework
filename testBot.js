@@ -100,6 +100,7 @@ server.post('/', async function(req, res, next){
 				handled_reply = bot.messageHandler(platform, '格式錯誤QQ');
 				bot.sendAPI(platform, 'reply', req, handled_reply);
 			}
+			action = '';
 		} else if(action === '建立群組_輸入群組名稱'){
 			group_name = received_message;
 			if(group_name !== "取消"){
