@@ -3,6 +3,9 @@ const plugin = require("./plugin_manager.js");
 let gacha_result = plugin.run('plugin_game', 10);
 console.log(gacha_result);
 
+str = '123456';
+console.log(str.indexOf('7'));
+
 const sleep = ms => {
   return new Promise(resolve => setTimeout(resolve, ms))
 }

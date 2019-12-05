@@ -40,19 +40,23 @@ server.post('/', async function(req, res, next){
 	let received_message = bot.getReceivedMessage(req);
 	let user_id = bot.getUserId(req);
 	let payload = bot.getPayload(req);
-	//console.log(skip);
-	/*
-	if (skip >= 1){
-		skip = 0;
-	}
-	*/
+	
+	// webhook event
 	bot.connect(platform, req, res);
 
 	if(con_label === 'one'){
 		try{
-			//console.log(payload);
+			// text mode
+			if(received_message === '功能表'){
+				if(await plugin.run('plugin_sql', 'getUser_nickname', user_id) === null){
+					reply = bot.messageHandler(platform, received_message, '第一次使用');
+					bot.sendAPI(platform, 'reply', req, reply);
+				} else {
+					reply = bot.messageHandler(platform, received_message, '功能表');
+					bot.sendAPI(platform, 'reply', req, reply);
+				}
 			// button mode
-			if(typeof payload !== 'undefined'){
+			} else if(typeof payload !== 'undefined'){
 				if(payload === "抽卡"){
 					//gacha_time = received_message.match(/^!抽\*[1-9]+[0-9]*/)[0].substring(3);
 					gacha_result = plugin.run('plugin_game', parseInt(10, 10));
@@ -132,15 +136,6 @@ server.post('/', async function(req, res, next){
 				}
 				if(platform === 'line'){
 					skip++;
-				}
-			// text mode
-			} else if(received_message === '功能表'){
-				if(await plugin.run('plugin_sql', 'getUser_nickname', user_id) === null){
-					reply = bot.messageHandler(platform, received_message, '第一次使用');
-					bot.sendAPI(platform, 'reply', req, reply);
-				} else {
-					reply = bot.messageHandler(platform, received_message, '功能表');
-					bot.sendAPI(platform, 'reply', req, reply);
 				}
 			// nlp
 			} else if(typeof payload === 'undefined' && skip < 1){

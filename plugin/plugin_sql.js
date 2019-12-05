@@ -47,9 +47,12 @@ class plugin_sql extends plugin_format{
 		} else if(func === 'getFriendList'){
 			let getFriendList = await this.getFriendList(...args);
 			return getFriendList;
-		} else if(func === 'FriendIsExist'){
-			let FriendIsExist = await this.FriendIsExist(...args);
-			return FriendIsExist;
+		} else if(func === 'friendIsExist'){
+			let friendIsExist = await this.friendIsExist(...args);
+			return friendIsExist;
+		} else if(func === 'groupIsExist'){
+			let groupIsExist = await this.groupIsExist(...args);
+			return groupIsExist;
 		} else {
 			console.log("Unknown function.");
 		}
@@ -217,7 +220,7 @@ class plugin_sql extends plugin_format{
 		let data = await this.getData();
 		//console.log(this.groupIsExist(new_group_name, data));
 		if(await this.groupIsExist(new_group_name, data) === true){
-			return '群組名稱已被使用，請使用其他名稱';
+			return '群組名稱已被使用，請使用其他名稱，sorry啦>uO';
 		} else {
 			let group_name = await this.getGroupName(user_id, data);
 			if(group_name === ''){
@@ -230,7 +233,8 @@ class plugin_sql extends plugin_format{
 		}
 	}
 	// judge group name
-	async groupIsExist(group_name, data){
+	async groupIsExist(group_name){
+		let data = await this.getData();
 		let group_array = [];
 		for(let item of data){
 			group_array = item.group_name.split(',');
@@ -296,7 +300,7 @@ class plugin_sql extends plugin_format{
 		return;
 	}
 	//find the friend is exist or not
-	async FriendIsExist(user_id, friend_nickname){
+	async friendIsExist(user_id, friend_nickname){
 		let friend_array = [];
 		let data = await this.getData();
 		for(let item of data){
@@ -311,6 +315,7 @@ class plugin_sql extends plugin_format{
 		}
 		return false;
 	}
+	
 	//add friend
 	async AddFriend(friend_nickname, user_nickname){
 		let data = await this.getData();

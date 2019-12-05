@@ -18,7 +18,7 @@ class handler{
 		if(action === '功能表'){
 			let message = [{
 				"type": "text",
-				"text": "你想做甚麼？",
+				"text": "請選擇功能OuO",
 				"quickReply": {
 					"items":[
 						{
@@ -27,7 +27,7 @@ class handler{
 								"type": "postback",
 								"label": "抽卡",
 								"data": "抽卡",
-								"text": "抽卡"
+								"text": ""
 							}
 						},{
 							"type": "action",
@@ -35,7 +35,7 @@ class handler{
 								"type": "postback",
 								"label": "傳送訊息",
 								"data": "傳送訊息",
-								"text": "傳送訊息"
+								"text": ""
 							}
 						},{
 							"type": "action",
@@ -43,7 +43,7 @@ class handler{
 								"type": "postback",
 								"label": "建立群組",
 								"data": "建立群組",
-								"text": "建立群組"
+								"text": ""
 							}
 						},{
 							"type": "action",
@@ -51,7 +51,7 @@ class handler{
 								"type": "postback",
 								"label": "群組邀請",
 								"data": "群組邀請",
-								"text": "群組邀請"
+								"text": ""
 							}
 						},{
 							"type": "action",
@@ -59,7 +59,7 @@ class handler{
 								"type": "postback",
 								"label": "好友邀請",
 								"data": "好友邀請",
-								"text": "好友邀請"
+								"text": ""
 							}
 						}
 					]
@@ -78,7 +78,7 @@ class handler{
 								"type": "postback",
 								"label": "好",
 								"data": "好",
-								"text": "好"
+								"text": ""
 							}
 						},{
 							"type": "action",
@@ -86,14 +86,68 @@ class handler{
 								"type": "postback",
 								"label": "不要",
 								"data": "不要",
-								"text": "不要"
+								"text": ""
 							}
 						}
 					]
 				}
 			}]
 			return message;
-		} else if(action.indexOf('好友或群組')){
+		} else if(action.indexOf("是否接受好友") > -1){
+			let message = [{
+				"type":"text",
+				"text": action,
+				"quickReply": {
+					"items":[
+						{
+							"type": "postback",
+							"action": {
+								"type": "postback",
+								"label": "接受邀請",
+								"data": "接受好友邀請",
+								"text": ""
+							}
+						},{
+							"type": "postback",
+							"action": {
+								"type": "postback",
+								"label": "拒絕邀請",
+								"data": "拒絕好友邀請",
+								"text": ""
+							}
+						}
+					]
+				}
+			}]
+			return message;
+		} else if(action.indexOf("邀請進入") > -1){
+			let message = [{
+				"type":"text",
+				"text": action,
+				"quickReply": {
+					"items":[
+						{
+							"type": "postback",
+							"action": {
+								"type": "postback",
+								"label": "接受",
+								"data": "接受群組邀請",
+								"text": ""
+							}
+						},{
+							"type": "postback",
+							"action": {
+								"type": "postback",
+								"label": "拒絕",
+								"data": "拒絕群組邀請",
+								"text": ""
+							}
+						}
+					]
+				}
+			}]
+			return message;
+		}  else if(action.indexOf("請選擇要傳送給朋友或群組") > -1){
 			let message = [{
 				"type":"text",
 				"text": action,
@@ -104,70 +158,16 @@ class handler{
 							"action": {
 								"type": "postback",
 								"label": "好友",
-								"data": "好友",
-								"text": "好友"
+								"data": "傳送訊息_好友",
+								"text": ""
 							}
 						},{
 							"type": "postback",
 							"action": {
 								"type": "postback",
 								"label": "群組",
-								"data": "群組",
-								"text": "群組"
-							}
-						}
-					]
-				}
-			}]
-			return message;
-		} else if(action.indexOf("邀請進入")){
-			let message = [{
-				"type":"text",
-				"text": action,
-				"quickReply": {
-					"items":[
-						{
-							"type": "action",
-							"action": {
-								"type": "postback",
-								"label": "接受",
-								"data": "接受",
-								"text": "接受"
-							}
-						},{
-							"type": "postback",
-							"action": {
-								"type": "postback",
-								"label": "拒絕",
-								"data": "拒絕",
-								"text": "拒絕"
-							}
-						}
-					]
-				}
-			}]
-			return message;
-		} else if(action.indexOf("是否接受好友邀請?")){
-			let message = [{
-				"type":"text",
-				"text": action,
-				"quickReply": {
-					"items":[
-						{
-							"type": "action",
-							"action": {
-								"type": "postback",
-								"label": "接受邀請",
-								"data": "接受邀請",
-								"text": "接受邀請"
-							}
-						},{
-							"type": "postback",
-							"action": {
-								"type": "postback",
-								"label": "拒絕邀請",
-								"data": "拒絕邀請",
-								"text": "拒絕邀請"
+								"data": "傳送訊息_群組",
+								"text": ""
 							}
 						}
 					]
