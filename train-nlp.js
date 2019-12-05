@@ -127,7 +127,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('ch', '你只是一個機器人嗎', 'agent.chatbot');
   manager.addDocument('ch', '你只是一個機器人', 'agent.chatbot');
   manager.addDocument('ch', '你就是一個機器人', 'agent.chatbot');
-  manager,addDocument('ch', '你是個機器人', 'agent.chatbot');
+  manager.addDocument('ch', '你是個機器人', 'agent.chatbot');
   manager.addDocument('ch', '你有很聰明嗎', 'agent.clever');
   manager.addDocument('ch', '你很有知識嗎', 'agent.clever');
   manager.addDocument('ch', '你如此聰明', 'agent.clever');
@@ -1265,7 +1265,7 @@ module.exports = async function trainnlp(manager, say) {
     "If you're bored, you could plan your dream vacation"
   );
   manager.addAnswer('ch','user.bored','假如你無聊的話，你可以想想你的夢想');
-  manaer.addAnswer('ch','user.bored','無聊?那你有看過刺蝟洗澡嗎?');
+  manager.addAnswer('ch','user.bored','無聊?那你有看過刺蝟洗澡嗎?');
   manager.addAnswer(
     'en',
     'user.bored',
