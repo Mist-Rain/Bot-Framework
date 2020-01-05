@@ -62,10 +62,10 @@ class plugin_game extends plugin_format {
 		}
 		let result = '';
 		for(let count = 0; count<Object.keys(gacha_result).length; count++){
-			if(count === 0 && Object.values(gacha_result)[count]!==0){
+			if(result === '' && Object.values(gacha_result)[count]!==0){
 				result = Object.keys(gacha_result)[count].concat('*').concat(Object.values(gacha_result)[count]).concat(result);
 			}
-			else if(count !== 0 && Object.values(gacha_result)[count]!==0){
+			else if(result !== '' && Object.values(gacha_result)[count]!==0){
 				result = Object.keys(gacha_result)[count].concat('*').concat(Object.values(gacha_result)[count]).concat('\n').concat(result);
 			}
 		}

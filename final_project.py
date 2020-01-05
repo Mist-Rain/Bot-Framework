@@ -1,6 +1,5 @@
 import requests
 import sys
-import json
 from bs4 import BeautifulSoup
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
@@ -23,9 +22,7 @@ def getWeather(location):
       print('降雨機率：',soup.find('span', id='wob_pp').text)
       print('濕度：',soup.find('span', id='wob_hm').text)
       print('風速：',soup.find('span', id='wob_ws').text)
-      #data = {'地點': soup.find('div', id='wob_loc').text, '時間': soup.find('div', id='wob_dts').text, '天氣': soup.find('span', id='wob_dc').text, '溫度': soup.find('span', id='wob_tm').text+'°C', '降雨機率': soup.find('span', id='wob_pp').text, '濕度': soup.find('span', id='wob_hm').text, '風速': soup.find('span', id='wob_ws').text}
-      #json_data = json.dumps(data, ensure_ascii=False, sort_keys=True, indent=4, separators=(',', ': '))
-      #return json_data
+      print("資料來源: www.weather.com")
     except:
       print('查無此地！')
 

@@ -37,13 +37,13 @@ server.post('/', async function(req, res, next){
 		} else if(received_message.match(/^天氣=./)){
 			location = received_message.substring(3);
 			exec('python final_project.py '+location, async function (err, stdout, stderr) {
-				reply = await bot.messageHandler(platform, stdout+"\n資料來源: www.weather.com");
+				reply = await bot.messageHandler(platform, stdout);
 				bot.sendAPI(platform, 'reply', req, reply);
 			});	
 		} else {
-			NLP_reply = await plugin.run('plugin_reply', received_message);
+			/*NLP_reply = await plugin.run('plugin_reply', received_message);
 			reply = await bot.messageHandler(platform, NLP_reply);
-			bot.sendAPI(platform, 'reply', req, reply);
+			bot.sendAPI(platform, 'reply', req, reply);*/
 		}
 	}
 });
