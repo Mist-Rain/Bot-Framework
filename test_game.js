@@ -2,12 +2,8 @@
  * test_bot.js
  */
 
-// jQuery
-const 
-	jsdom = require("jsdom"),
-	{ JSDOM } = jsdom,
-	{ window } = new JSDOM(`<!DOCTYPE html>`),
-	$ = require('jQuery')(window);
+// child_process for calling python script
+const { exec } = require('child_process');
 
 // bot settings
 const
@@ -17,7 +13,7 @@ const
 	
 	// listen port 8080
 	bot = new connection_manager(8080),
-	command_list = "抽卡\n提醒\n天氣=<地點>";
+	command_list = "抽*<次數> (抽卡)\n天氣=<地點>";
 
 server.post('/', async function(req, res, next){
 	// line webhook verify
@@ -32,17 +28,24 @@ server.post('/', async function(req, res, next){
 	
 	if(typeof received_message !== 'undefined'){
 		if(received_message === 'help'){
-			reply = await bot.messageHandler(platform, "<可用指令>\n"+command_list);
-		} else if(received_message === '抽卡'){
-			reply = await bot.messageHandler(platform, plugin.run('plugin_game', 10));
+			reply = await bot.messageHandler(platform, "~可用指令~\n"+command_list);
+			bot.sendAPI(platform, 'reply', req, reply);
+		} else if(received_message.match(/^抽\*[1-9]+[0-9]*$/)){
+			time = received_message.substring(2);
+			reply = await bot.messageHandler(platform, plugin.run('plugin_game', parseInt(time, 10)));
+			bot.sendAPI(platform, 'reply', req, reply);
+		} else if(received_message.match(/^天氣=./)){
+			location = received_message.substring(3);
+			exec('python final_project.py '+location, async function (err, stdout, stderr) {
+				reply = await bot.messageHandler(platform, stdout+"\n資料來源: www.weather.com");
+				bot.sendAPI(platform, 'reply', req, reply);
+			});	
 		} else {
 			NLP_reply = await plugin.run('plugin_reply', received_message);
-			reply = bot.messageHandler(platform, NLP_reply);
+			reply = await bot.messageHandler(platform, NLP_reply);
+			bot.sendAPI(platform, 'reply', req, reply);
 		}
 	}
-	
-	// transform the json format and send
-	bot.sendAPI(platform, 'reply', req, reply);
 });
 
 server.get('/', async function(req, res, next){
