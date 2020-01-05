@@ -13,8 +13,8 @@ class plugin_game extends plugin_format {
 	gacha(time){
 		// gacha settings
 		const
-			gacha_list = ["★", "★★", "★★★", "★★★★", "★★★★★"],
-			gacha_weight = [50, 30, 10, 8, 2];
+			gacha_list = ["★", "★★", "★★★"],
+			gacha_weight = [80, 18, 2];
 			
 		let gacha_result = {
 				'★': 0,

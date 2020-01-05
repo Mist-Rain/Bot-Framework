@@ -28,11 +28,15 @@ server.post('/', async function(req, res, next){
 	
 	if(typeof received_message !== 'undefined'){
 		if(received_message === 'help'){
-			reply = await bot.messageHandler(platform, "~可用指令~\n"+command_list);
+			reply = await bot.messageHandler(platform, "~指令~\n"+command_list);
 			bot.sendAPI(platform, 'reply', req, reply);
 		} else if(received_message.match(/^抽\*[1-9]+[0-9]*$/)){
-			time = received_message.substring(2);
-			reply = await bot.messageHandler(platform, plugin.run('plugin_game', parseInt(time, 10)));
+			time = parseInt(received_message.substring(2), 10);
+			if(time<=1000000){
+				reply = await bot.messageHandler(platform, plugin.run('plugin_game', time));
+			} else {
+				reply = await bot.messageHandler(platform, "太大啦！(上限100W)");
+			}
 			bot.sendAPI(platform, 'reply', req, reply);
 		} else if(received_message.match(/^天氣=./)){
 			location = received_message.substring(3);
