@@ -28,7 +28,7 @@ server.post('/', async function(req, res, next){
 	
 	if(typeof received_message !== 'undefined'){
 		// help
-		if(received_message === 'help'){
+		if(received_message.match(/^help$/i)){
 			reply = await bot.messageHandler(platform, "~指令~\n"+command_list);
 			bot.sendAPI(platform, 'reply', req, reply);
 		// 抽卡
@@ -43,7 +43,7 @@ server.post('/', async function(req, res, next){
 		// 天氣
 		} else if(received_message.match(/^天氣=./)){
 			location = received_message.substring(3);
-			exec('python final_project.py '+location, async function (err, stdout, stderr) {
+			exec('python weather_crawler.py '+location, async function (err, stdout, stderr) {
 				reply = await bot.messageHandler(platform, stdout);
 				bot.sendAPI(platform, 'reply', req, reply);
 			});	
