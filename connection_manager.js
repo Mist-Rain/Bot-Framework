@@ -258,17 +258,17 @@ class base {
 	}
 	
 	// send message handler
-	messageHandler(platform, message, button_action){
+	messageHandler(platform, message, type){
 		if(platform === 'line'){
-			if(arguments[2]){
-				return lineHandler.quickMessage(button_action);
+			if(type === 'image'){
+				return lineHandler.imageMessage(message);
 			} else {
 				return lineHandler.textMessage(message);
 			}
 		}
 		else if(platform === 'fb'){
-			if(arguments[2]){
-				return fbHandler.quickMessage(button_action);
+			if(type === 'image'){
+				return fbHandler.imageMessage(message);
 			} else {
 				return fbHandler.textMessage(message);
 			}

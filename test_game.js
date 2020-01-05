@@ -13,7 +13,7 @@ const
 	
 	// listen port 8080
 	bot = new connection_manager(8080),
-	command_list = "抽*<次數> (抽卡)\n天氣=<地點>";
+	command_list = "抽*<次數> (抽卡)\n天氣=<地點>\n妹子";
 
 server.post('/', async function(req, res, next){
 	// line webhook verify
@@ -27,9 +27,11 @@ server.post('/', async function(req, res, next){
 	bot.connect(platform, req, res);
 	
 	if(typeof received_message !== 'undefined'){
+		// help
 		if(received_message === 'help'){
 			reply = await bot.messageHandler(platform, "~指令~\n"+command_list);
 			bot.sendAPI(platform, 'reply', req, reply);
+		// 抽卡
 		} else if(received_message.match(/^抽\*[1-9]+[0-9]*$/)){
 			time = parseInt(received_message.substring(2), 10);
 			if(time<=1000000){
@@ -38,10 +40,17 @@ server.post('/', async function(req, res, next){
 				reply = await bot.messageHandler(platform, "太大啦！(上限100W)");
 			}
 			bot.sendAPI(platform, 'reply', req, reply);
+		// 天氣
 		} else if(received_message.match(/^天氣=./)){
 			location = received_message.substring(3);
 			exec('python final_project.py '+location, async function (err, stdout, stderr) {
 				reply = await bot.messageHandler(platform, stdout);
+				bot.sendAPI(platform, 'reply', req, reply);
+			});	
+		// 妹子
+		} else if(received_message === '妹子'){
+			exec('python beauty_crawler.py', async function (err, stdout, stderr) {
+				reply = await bot.messageHandler(platform, stdout, 'image');
 				bot.sendAPI(platform, 'reply', req, reply);
 			});	
 		} else {
