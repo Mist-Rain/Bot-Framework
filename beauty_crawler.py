@@ -117,4 +117,3 @@ def download(url_list):
 	
 if __name__ == '__main__':
 	randomImage(1)
-	
