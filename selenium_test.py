@@ -60,6 +60,7 @@ def downloadLinks(links):
 			f.write(img_res.content)
 		print("Downloaing %d: %s"%(count,url))
 		count+=1
+	print("Downloaing %d images finished."%(len(links)))
 	return	
 
 def main():
