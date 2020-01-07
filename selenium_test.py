@@ -58,7 +58,7 @@ def downloadLinks(links):
 		img_res = requests.get(url)
 		with open('./download/'+str(count)+'.png', 'wb') as f:
 			f.write(img_res.content)
-		print("%d: %s download"%(count,url))
+		print("Downloaing %d: %s"%(count,url))
 		count+=1
 	return	
 
