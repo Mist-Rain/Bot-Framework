@@ -81,7 +81,7 @@ def getRandomImage(url_list):
       with open('./image/img.png', 'wb') as f:
         f.write(img_res.content)'''
     except:
-      getRandomImage(getTitleUrlList(getRandomPage(1000)))
+      getRandomImage(getTitleUrlList(getRandomPage(200)))
   else:
     print('Invalid url: '+url)
 

@@ -13,7 +13,7 @@ const
 	
 	// listen port 8080
 	bot = new connection_manager(8080),
-	command_list = "抽*<次數> (抽卡)\n天氣=<地點>\n妹子";
+	command_list = "抽*<次數> (抽卡)\n天氣=<地點>\n妹子\ngi=<文字> (估狗搜圖)";
 
 server.post('/', async function(req, res, next){
 	// line webhook verify
@@ -47,9 +47,16 @@ server.post('/', async function(req, res, next){
 				reply = await bot.messageHandler(platform, stdout);
 				bot.sendAPI(platform, 'reply', req, reply);
 			});	
-		// 妹子
+		// crawl ptt beauty
 		} else if(received_message === '妹子'){
 			exec('python beauty_crawler.py', async function (err, stdout, stderr) {
+				reply = await bot.messageHandler(platform, stdout, 'image');
+				bot.sendAPI(platform, 'reply', req, reply);
+			});
+		// google 圖片 gi = google image
+		} else if(received_message.match(/^gi=./)){
+			search = '\"'.concat(received_message.substring(3)).concat('\"');
+			exec('python goo_image_crawler.py '+search, async function (err, stdout, stderr) {
 				reply = await bot.messageHandler(platform, stdout, 'image');
 				bot.sendAPI(platform, 'reply', req, reply);
 			});	
