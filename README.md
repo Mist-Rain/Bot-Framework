@@ -14,10 +14,6 @@ The framework highly depends on async function syntax, the use of sql and ssl se
 * sql software (e.g. [XAMPP](https://www.apachefriends.org/zh_tw/index.html))
 * ssl server like [ngrok](https://ngrok.com/) or [heroku](https://www.heroku.com/)
 
-## Community
-
-You can discuss anything about sm-bot-framework or chatbot development in our [Discord Server](https://discord.gg/dSXSemU). Join now!
-
 ## <a name="documentation"></a>Documentation
 
 You can find the framework documentation on the website.
